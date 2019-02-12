@@ -63,9 +63,7 @@ const pluginsListProd = [
 /* -------------------------------------------------------------------------------------------------
 Header & Footer JavaScript Boundles
 -------------------------------------------------------------------------------------------------- */
-const headerJS = [
-  //'./node_modules/jquery/dist/jquery.js',
-];
+const headerJS = ['./node_modules/jquery/dist/jquery.js'];
 
 const footerJS = ['./src/assets/js/**'];
 
@@ -126,7 +124,7 @@ function devServer() {
 
   watch('./src/assets/styles/**/*.css', stylesDev);
   watch('./src/assets/js/**', series(footerScriptsDev, Reload));
-  watch('./src/assets/img/**', series(copyImagesDev, Reload));
+  watch('./src/assets/imgages/**', series(copyImagesDev, Reload));
   watch('./src/assets/fonts/**', series(copyFontsDev, Reload));
   watch('./src/theme/**', series(copyThemeDev, Reload));
   watch('./src/plugins/**', series(pluginsDev, Reload));
@@ -148,7 +146,7 @@ function copyThemeDev() {
 }
 
 function copyImagesDev() {
-  return src('./src/assets/img/**').pipe(dest('./build/wordpress/wp-content/themes/' + themeName + '/img'));
+  return src('./src/assets/imgages/**').pipe(dest('./build/wordpress/wp-content/themes/' + themeName + '/imgages'));
 }
 
 function copyFontsDev() {
@@ -251,14 +249,14 @@ function pluginsProd() {
 }
 
 function processImages() {
-  return src(['./src/assets/img/**', '!./src/assets/img/**/*.ico'])
+  return src(['./src/assets/imgages/**', '!./src/assets/imgages/**/*.ico'])
     .pipe(plumber({ errorHandler: onError }))
     .pipe(
       imagemin([imagemin.svgo({ plugins: [{ removeViewBox: true }] })], {
         verbose: true
       })
     )
-    .pipe(dest('./dist/themes/' + themeName + '/img'));
+    .pipe(dest('./dist/themes/' + themeName + '/imgages'));
 }
 
 function zipProd() {
