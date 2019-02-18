@@ -15,10 +15,9 @@ Tags: responsive, clean, minimal, modern, documentation
 */
 @import './normalize.css';
 @import './fonts.css';
-@import './resp.css';
 @import './jquery.fancybox.min.css';
 @import './swiper.min.css';
-
+@import './resp.css';
 
 /* Специфика */
 
@@ -36,9 +35,9 @@ body {
 	line-height: 1.69;
 	color: #33445E;
 }
-body.no-scroll::-webkit-scrollbar { 
+body.no-scroll::-webkit-scrollbar {
 	display: none;
-	-ms-overflow-style: none;  
+	-ms-overflow-style: none;
 	overflow: -moz-scrollbars-none;
 }
 html {
@@ -95,7 +94,7 @@ textarea {
 input.btn,
 input[type="button"],
 input[type="submit"],
-input[type="reset"] 
+input[type="reset"]
 input[type="text"],
 input[type="tel"],
 input[type="email"],
@@ -243,7 +242,7 @@ a {
 	border-bottom: 1px solid transparent;
 }
 a:hover {
-	border-bottom: 1px solid;	
+	border-bottom: 1px solid;
 }
 .content-with-aside {
 	display: -webkit-flex;
@@ -436,7 +435,7 @@ header .dropdown-menu {
 	width: 100vw;
 	height: 100vh;
 	z-index: 100;
-	background: url(../images/drowdown-bg.jpg) no-repeat;
+	background: url(./images/drowdown-bg.jpg) no-repeat;
 	background-size: cover;
 	left: 0;
 	top: 0;
@@ -462,7 +461,7 @@ header .dropdown-menu:before {
 	right: 0;
 	top: 0;
 	z-index: 101;
-	background: url(../images/blokhin-sergey-bg-3.jpg) no-repeat;
+	background: url(./images/blokhin-sergey-bg-3.jpg) no-repeat;
 	background-size: cover;
 }
 header .dropdown-menu .left {
@@ -576,7 +575,7 @@ header .dropdown-menu .mobile-block > ul > li.title:after {
 	position: absolute;
 	top: 5px;
 	right: -30px;
-	background: url(../images/arrow-mobile.svg) no-repeat;
+	background: url(./images/arrow-mobile.svg) no-repeat;
 	width: 12px;
 	height: 11px;
 	background-size: cover;
@@ -625,7 +624,7 @@ header .dropdown-menu .mobile-block > ul > li.title + ul li.title-2:after {
 	position: absolute;
 	top: 4px;
 	right: -30px;
-	background: url(../images/arrow-mobile.svg) no-repeat;
+	background: url(./images/arrow-mobile.svg) no-repeat;
 	width: 10px;
 	height: 9px;
 	background-size: cover;
@@ -680,9 +679,9 @@ header .dropdown-menu .left .opacity-block > div {
 header .dropdown-menu .left .opacity-block > div.tab-active {
 	background: linear-gradient(180deg, #1C2333 0%, #1E2433 100%);
 }
-header .dropdown-menu .left .opacity-block::-webkit-scrollbar { 
+header .dropdown-menu .left .opacity-block::-webkit-scrollbar {
 	display: none;
-	-ms-overflow-style: none;  
+	-ms-overflow-style: none;
 	overflow: -moz-scrollbars-none;
 }
 header .dropdown-menu .left .opacity-block ul {
@@ -1149,7 +1148,7 @@ aside .callback .social-networks {
 aside .callback .social-networks a {
 	border-bottom: none;
 	margin: 0 2px;
-} 
+}
 aside .callback .social-networks a:hover {
 	opacity: 0.5;
 }
@@ -1212,7 +1211,7 @@ aside > .title-mobile:hover > div > .mt-3 {
 
 .navigation {
 	height: 170px;
-	background: url(../images/bg-navigation.png) no-repeat;
+	background: url(./images/bg-navigation.png) no-repeat;
 	background-size: cover;
 	display: -webkit-flex;
 	display: -moz-flex;
@@ -1497,7 +1496,7 @@ aside > .title-mobile:hover > div > .mt-3 {
 	position: absolute;
 	top: 0;
 	left: 0;
-	background: url(../images/bg-block-mini.png) no-repeat;
+	background: url(./images/bg-block-mini.png) no-repeat;
 	background-size: cover;
 }
 .landing-for-services-2 .title {
@@ -1574,7 +1573,7 @@ aside > .title-mobile:hover > div > .mt-3 {
 }
 .landing-for-services-3 .top .title:before {
 	content: '';
-	background: url(../images/bg-title.svg) no-repeat;
+	background: url(./images/bg-title.svg) no-repeat;
 	position: absolute;
 	top: 50%;
 	left: 0%;
@@ -1635,7 +1634,7 @@ aside > .title-mobile:hover > div > .mt-3 {
 	font-family: MuseoSans;
 }
 .landing-for-services-3 .swiper-container .swiper-button-prev {
-	background: url(../images/arrow-slider.svg) no-repeat;
+	background: url(./images/arrow-slider.svg) no-repeat;
 	width: 10px;
 	height: 10px;
 	background-size: cover;
@@ -1646,7 +1645,7 @@ aside > .title-mobile:hover > div > .mt-3 {
 	margin-top: 0;
 }
 .landing-for-services-3 .swiper-container .swiper-button-next {
-	background: url(../images/arrow-slider.svg) no-repeat;
+	background: url(./images/arrow-slider.svg) no-repeat;
 	transform: rotate(180deg);
 	width: 10px;
 	height: 10px;
@@ -1671,7 +1670,7 @@ aside > .title-mobile:hover > div > .mt-3 {
 	position: absolute;
 	top: 0;
 	left: 0;
-	background: url(../images/bg-block-mini.png) no-repeat;
+	background: url(./images/bg-block-mini.png) no-repeat;
 	background-size: cover;
 }
 .landing-for-services-4 > .title {
@@ -1877,7 +1876,7 @@ aside > .title-mobile:hover > div > .mt-3 {
 }
 .landing-for-services-6 .top .title:before {
 	content: '';
-	background: url(../images/bg-title.svg) no-repeat;
+	background: url(./images/bg-title.svg) no-repeat;
 	position: absolute;
 	top: 50%;
 	left: 0%;
@@ -1909,7 +1908,7 @@ aside > .title-mobile:hover > div > .mt-3 {
 	padding: 0 4px;
 }
 .landing-for-services-6 .swiper-button-prev {
-	background: url(../images/arrow-slider.svg) no-repeat;
+	background: url(./images/arrow-slider.svg) no-repeat;
 	width: 10px;
 	height: 10px;
 	background-size: cover;
@@ -1919,7 +1918,7 @@ aside > .title-mobile:hover > div > .mt-3 {
 	margin-top: 0;
 }
 .landing-for-services-6 .swiper-button-next {
-	background: url(../images/arrow-slider.svg) no-repeat;
+	background: url(./images/arrow-slider.svg) no-repeat;
 	transform: rotate(180deg);
 	width: 10px;
 	height: 10px;
@@ -1939,7 +1938,7 @@ aside > .title-mobile:hover > div > .mt-3 {
 	background: #1e203c;
 	background: -moz-linear-gradient(left, #1e203c 0%, #1e203c 63%, #1e203c 63%, #1e203c 63%, #181b33 63%, #181b33 100%);
 	background: -webkit-linear-gradient(left, #1e203c 0%,#1e203c 63%,#1e203c 63%,#1e203c 63%,#181b33 63%,#181b33 100%);
-	background: linear-gradient(to right, #1e203c 0%,#1e203c 63%,#1e203c 63%,#1e203c 63%,#181b33 63%,#181b33 100%); 
+	background: linear-gradient(to right, #1e203c 0%,#1e203c 63%,#1e203c 63%,#1e203c 63%,#181b33 63%,#181b33 100%);
 }
 .landing-for-services-7 .inner {
 	display: -webkit-flex;
@@ -1984,7 +1983,7 @@ aside > .title-mobile:hover > div > .mt-3 {
 }
 .landing-for-services-7 .photo {
 	width: 22.8%;
-	background: url(../images/blokhin-sergey-bg.png) no-repeat;
+	background: url(./images/blokhin-sergey-bg.png) no-repeat;
 	background-size: cover;
 	display: -webkit-flex;
 	display: -moz-flex;
@@ -2016,7 +2015,7 @@ aside > .title-mobile:hover > div > .mt-3 {
 }
 .landing-for-services-7 .useful-articles .title:before {
 	content: '';
-	background: url(../images/bg-title-2.svg) no-repeat;
+	background: url(./images/bg-title-2.svg) no-repeat;
 	position: absolute;
 	top: 50%;
 	left: 0%;
@@ -2399,7 +2398,7 @@ aside > .title-mobile:hover > div > .mt-3 {
 	padding: 0 4px;
 }
 .services-5 .time-for-master-class .swiper-button-prev {
-	background: url(../images/arrow-slider.svg) no-repeat;
+	background: url(./images/arrow-slider.svg) no-repeat;
 	width: 10px;
 	height: 10px;
 	background-size: cover;
@@ -2410,7 +2409,7 @@ aside > .title-mobile:hover > div > .mt-3 {
 	margin-top: 0;
 }
 .services-5 .time-for-master-class .swiper-button-next {
-	background: url(../images/arrow-slider.svg) no-repeat;
+	background: url(./images/arrow-slider.svg) no-repeat;
 	transform: rotate(180deg);
 	width: 10px;
 	height: 10px;
@@ -2455,7 +2454,7 @@ aside > .title-mobile:hover > div > .mt-3 {
 }
 .services-6 a:before {
 	content: '';
-	background: url(../images/podkladka-bg.jpg) no-repeat;
+	background: url(./images/podkladka-bg.jpg) no-repeat;
 	width: 100%;
 	height: 100%;
 	position: absolute;
@@ -2871,7 +2870,7 @@ aside > .title-mobile:hover > div > .mt-3 {
 	position: absolute;
 	top: 0;
 	left: 0;
-	background: url(../images/bg-block-mini.png) no-repeat;
+	background: url(./images/bg-block-mini.png) no-repeat;
 	background-size: cover;
 }
 .page-of-news-1 .title {
@@ -3228,7 +3227,7 @@ iframe {
 	position: absolute;
 	top: 0;
 	right: 0;
-	background: url(../images/blokhin-sergey-bg.png) no-repeat;
+	background: url(./images/blokhin-sergey-bg.png) no-repeat;
 	background-size: cover;
 	opacity: 0.4;
 }
@@ -3444,7 +3443,7 @@ iframe {
 	content: '';
 	width: 33.4%;
 	height: 100%;
-	background: url(../images/blokhin-sergey-bg-2.png) no-repeat;
+	background: url(./images/blokhin-sergey-bg-2.png) no-repeat;
 	background-size: cover;
 	position: absolute;
 	top: 0;
@@ -3723,7 +3722,7 @@ iframe {
 	position: absolute;
 	right: 0;
 	top: 0;
-	background: url(../images/bg-slider-2.png) no-repeat;
+	background: url(./images/bg-slider-2.png) no-repeat;
 	background-size: cover;
 	z-index: 1;
 }
@@ -3753,7 +3752,7 @@ iframe {
 }
 .main-3 .top .title:before {
 	content: '';
-	background: url(../images/bg-title-2.svg) no-repeat;
+	background: url(./images/bg-title-2.svg) no-repeat;
 	position: absolute;
 	top: 50%;
 	left: 0%;
@@ -3837,7 +3836,7 @@ iframe {
 	width: 46.7%;
 }
 .work-results .swiper-button-prev {
-	background: url(../images/arrow-slider.svg) no-repeat;
+	background: url(./images/arrow-slider.svg) no-repeat;
 	width: 10px;
 	height: 10px;
 	background-size: cover;
@@ -3848,7 +3847,7 @@ iframe {
 	margin-top: 0;
 }
 .work-results .swiper-button-next {
-	background: url(../images/arrow-slider.svg) no-repeat;
+	background: url(./images/arrow-slider.svg) no-repeat;
 	transform: rotate(180deg);
 	width: 10px;
 	height: 10px;
@@ -3890,7 +3889,7 @@ iframe {
 }
 .main-4 .top .title:before {
 	content: '';
-	background: url(../images/bg-title.svg) no-repeat;
+	background: url(./images/bg-title.svg) no-repeat;
 	background-size: cover;
 	position: absolute;
 	top: 50%;
@@ -3981,7 +3980,7 @@ iframe {
 	border-bottom: 1px solid;
 }
 .main-4 .news-slider .swiper-button-prev {
-	background: url(../images/arrow-slider.svg) no-repeat;
+	background: url(./images/arrow-slider.svg) no-repeat;
 	width: 10px;
 	height: 10px;
 	background-size: cover;
@@ -3991,7 +3990,7 @@ iframe {
 	margin-top: 0;
 }
 .main-4 .news-slider .swiper-button-next {
-	background: url(../images/arrow-slider.svg) no-repeat;
+	background: url(./images/arrow-slider.svg) no-repeat;
 	transform: rotate(180deg);
 	width: 10px;
 	height: 10px;
@@ -4079,7 +4078,7 @@ iframe {
 }
 .main-6 .title:before {
 	content: '';
-	background: url(../images/bg-title-3.svg) no-repeat;
+	background: url(./images/bg-title-3.svg) no-repeat;
 	background-size: cover;
 	position: absolute;
 	top: 50%;
@@ -4240,7 +4239,7 @@ iframe {
 	position: absolute;
 	left: 0;
 	top: 0;
-	background:  url(../images/left-bg-2.png) no-repeat;
+	background:  url(./images/left-bg-2.png) no-repeat;
 	background-size: cover;
 }
 .team-2 .title {
@@ -4250,7 +4249,7 @@ iframe {
 }
 .team-2 .title:before {
 	content: '';
-	background: url(../images/bg-title-2.svg) no-repeat;
+	background: url(./images/bg-title-2.svg) no-repeat;
 	position: absolute;
 	top: 50%;
 	left: 36px;
@@ -4563,7 +4562,7 @@ iframe {
 .page-of-doctor .callback .social-networks a {
 	border-bottom: none;
 	margin: 0 2px;
-} 
+}
 .page-of-doctor .callback .social-networks a:hover {
 	opacity: 0.5;
 }
@@ -4588,7 +4587,7 @@ iframe {
 	content: '';
 	width: 33.4%;
 	height: 100%;
-	background: url(../images/blokhin-sergey-bg-2.png) no-repeat;
+	background: url(./images/blokhin-sergey-bg-2.png) no-repeat;
 	background-size: cover;
 	position: absolute;
 	top: 0;
@@ -4926,7 +4925,7 @@ iframe {
 	animation:         hover-btn-arrow-after-biography 0.7s;
 }
 .biography-2 .right-block .reviews-slider .swiper-button-prev {
-	background: url(../images/arrow-slider.svg) no-repeat;
+	background: url(./images/arrow-slider.svg) no-repeat;
 	width: 10px;
 	height: 10px;
 	background-size: cover;
@@ -4937,7 +4936,7 @@ iframe {
 	top: initial;
 }
 .biography-2 .right-block .reviews-slider .swiper-button-next {
-	background: url(../images/arrow-slider.svg) no-repeat;
+	background: url(./images/arrow-slider.svg) no-repeat;
 	transform: rotate(180deg);
 	width: 10px;
 	height: 10px;
@@ -4999,11 +4998,11 @@ iframe {
 	background: #1E203C;
 }
 .biography-3 .work-results .swiper-button-next {
-	background: url(../images/arrow-slider-2.svg) no-repeat;
+	background: url(./images/arrow-slider-2.svg) no-repeat;
 	left: 231px;
 }
 .biography-3 .work-results .swiper-button-prev {
-	background: url(../images/arrow-slider-2.svg) no-repeat;
+	background: url(./images/arrow-slider-2.svg) no-repeat;
 	left: 158px;
 }
 .biography-3 .work-results .swiper-pagination {
@@ -5050,7 +5049,6 @@ iframe {
 	width: 41.3%;
 	position: relative;
 }
-
 .biography-4 .img > div {
 	position: sticky;
 	position: -webkit-sticky;
@@ -5168,7 +5166,7 @@ iframe {
 	position: absolute;
 	top: 0;
 	left: 0;
-	background: url(../images/bg-block-mini.png) no-repeat;
+	background: url(./images/bg-block-mini.png) no-repeat;
 	background-size: cover;
 }
 .biography-5 .left-block .item {
@@ -5516,7 +5514,7 @@ iframe {
 	width: 424px;
 }
 .biography-7 .certificate-slider .swiper-button-prev {
-	background: url(../images/arrow-slider-2.svg) no-repeat;
+	background: url(./images/arrow-slider-2.svg) no-repeat;
 	position: absolute;
 	top: 119px;
 	right: initial;
@@ -5527,7 +5525,7 @@ iframe {
 	outline: none !important;
 }
 .biography-7 .certificate-slider .swiper-button-next {
-	background: url(../images/arrow-slider-2.svg) no-repeat;
+	background: url(./images/arrow-slider-2.svg) no-repeat;
 	position: absolute;
 	top: 119px;
 	right: initial;

@@ -63,9 +63,12 @@ const pluginsListProd = [
 /* -------------------------------------------------------------------------------------------------
 Header & Footer JavaScript Boundles
 -------------------------------------------------------------------------------------------------- */
-const headerJS = ['./node_modules/jquery/dist/jquery.js'];
+const headerJS = ['./node_modules/jquery/dist/jquery.js','./src/assets/js/swiper.min.js','./src/assets/js/ScrollMagic.min.js',];
 
-const footerJS = ['./src/assets/js/**'];
+const footerJS = ['./src/assets/js/tabs.js',
+  './src/assets/js/scrollspy.js',
+  './src/assets/js/jquery.fancybox.min.js',
+  './src/assets/js/script.js',];
 
 /* -------------------------------------------------------------------------------------------------
 Installation Tasks
@@ -124,7 +127,7 @@ function devServer() {
 
   watch('./src/assets/styles/**/*.css', stylesDev);
   watch('./src/assets/js/**', series(footerScriptsDev, Reload));
-  watch('./src/assets/imgages/**', series(copyImagesDev, Reload));
+  watch('./src/assets/images/**', series(copyImagesDev, Reload));
   watch('./src/assets/fonts/**', series(copyFontsDev, Reload));
   watch('./src/theme/**', series(copyThemeDev, Reload));
   watch('./src/plugins/**', series(pluginsDev, Reload));
@@ -146,7 +149,7 @@ function copyThemeDev() {
 }
 
 function copyImagesDev() {
-  return src('./src/assets/imgages/**').pipe(dest('./build/wordpress/wp-content/themes/' + themeName + '/imgages'));
+  return src('./src/assets/images/**').pipe(dest('./build/wordpress/wp-content/themes/' + themeName + '/images'));
 }
 
 function copyFontsDev() {
@@ -249,14 +252,14 @@ function pluginsProd() {
 }
 
 function processImages() {
-  return src(['./src/assets/imgages/**', '!./src/assets/imgages/**/*.ico'])
+  return src(['./src/assets/images/**', '!./src/assets/images/**/*.ico'])
     .pipe(plumber({ errorHandler: onError }))
     .pipe(
       imagemin([imagemin.svgo({ plugins: [{ removeViewBox: true }] })], {
         verbose: true
       })
     )
-    .pipe(dest('./dist/themes/' + themeName + '/imgages'));
+    .pipe(dest('./dist/themes/' + themeName + '/images'));
 }
 
 function zipProd() {

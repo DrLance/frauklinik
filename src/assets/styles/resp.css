@@ -672,7 +672,7 @@
 		margin-top: 40px;
 	}
 	.biography-1 {
-		background: url(../images/blokhin-sergey-bg-3.jpg) no-repeat;
+		background: url(./images/blokhin-sergey-bg-3.jpg) no-repeat;
 		background-size: cover;
 	}
 	.biography-1 .inner {
@@ -781,7 +781,7 @@
 		position: absolute;
 		top: 5px;
 		right: 0;
-		background: url(../images/arrow-mobile.svg) no-repeat;
+		background: url(./images/arrow-mobile.svg) no-repeat;
 		width: 12px;
 		height: 11px;
 		background-size: cover;
@@ -828,7 +828,7 @@
 	}
 	header .dropdown-menu .right {
 		width: 100%;
-		background: url(../images/blokhin-sergey-bg-2.png) no-repeat;
+		background: url(./images/blokhin-sergey-bg-2.png) no-repeat;
 		background-size: cover;
 		padding: 48px 0px 48px 30px;
 	}
@@ -865,7 +865,7 @@
 		width: 33.33%;
 	}
 	.main-1 {
-		background: url(../images/blokhin-sergey-bg-3.jpg) no-repeat;
+		background: url(./images/blokhin-sergey-bg-3.jpg) no-repeat;
 		background-size: cover;
 	}
 	.main-1:before {
@@ -906,7 +906,7 @@
 	}
 	.landing-for-services-7 .callback:before {
 		content: '';
-		background: url(../images/blokhin-sergey-3.png) no-repeat;
+		background: url(./images/blokhin-sergey-3.png) no-repeat;
 		position: absolute;
 		right: 0;
 		bottom: 0;
