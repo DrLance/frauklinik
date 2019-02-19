@@ -5,7 +5,7 @@
 </head>
 <body <?php body_class(); ?>>
 <div id="wrapper">
-  <header id="header" class="header-index">
+  <header id="header">
     <div class="inner">
       <div class="logo">
         <span><?= bloginfo('description'); ?></span>
@@ -83,8 +83,7 @@
               <div id="tab-1-<?= $index; ?>">
                 <?php
                 $operationCat = get_posts(array(
-                  'post_type'   => 'operation_service',
-                  'numberposts' => -1,
+                  'post_type' => 'operation_service',
                   'tax_query' => array(
                     array(
                       'taxonomy' => 'taxonomy',
@@ -279,5 +278,21 @@
     </div>
   </header>
   <div id="middle">
+    <div class="navigation list">
+      <div class="inner">
+        <div>
+          <?php $menuHeader = wp_get_nav_menu_items('Header'); ?>
+          <?php foreach ($menuHeader as $item) : ?>
+            <a href="<?= $item->url; ?>"><?= $item->title; ?></a>
+          <?php endforeach; ?>
+          <h3 class="title"><?php the_title(); ?></h3>
+        </div>
+        <div class="button">
+          <a href="" class="btn btn-arrow">Оставить заявку
+            <img src="<?= get_template_directory_uri() ?>/images/arrow-btn.svg" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
 
 

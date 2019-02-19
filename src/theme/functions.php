@@ -69,11 +69,11 @@ function create_posttype()
         'singular_name' => __('Операция услуга'),
       ),
       'public'          => true,
-      'has_archive'     => true,
+      'has_archive'     => false,
       'capability_type' => 'post',
+      'rewrite' => array('slug' => 'operation-service', 'with_front' => true),
       'hierarchical'    => true,
-      'supports'        => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields'),
-      'taxonomies'          => array( 'category' ),
+      'supports'        => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields', 'page-attributes'),
     )
   );
 
@@ -103,7 +103,109 @@ function create_posttype()
       'supports'        => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields'),
     )
   );
+
+  register_post_type('team',
+    array(
+      'labels'          => array(
+        'name'          => __('Команда'),
+        'singular_name' => __('Команда'),
+      ),
+      'public'          => true,
+      'has_archive'     => false,
+      'capability_type' => 'post',
+      'rewrite' => array('slug' => 'team', 'with_front' => true),
+      'hierarchical'    => true,
+      'supports'        => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields', 'page-attributes'),
+    )
+  );
 }
 
 // Hooking up our function to theme setup
 add_action('init', 'create_posttype');
+
+// хук для регистрации
+add_action( 'init', 'create_taxonomy' );
+function create_taxonomy(){
+  // список параметров: http://wp-kama.ru/function/get_taxonomy_labels
+  register_taxonomy('taxonomy', array('operation_service'), array(
+    'label'                 => '', // определяется параметром $labels->name
+    'labels'                => array(
+      'name'              => 'Категории Оп Услуги',
+      'singular_name'     => 'Категории',
+      'search_items'      => 'Поиск категорий',
+      'all_items'         => 'Все категории',
+      'view_item '        => 'Просмотр Категории',
+      'parent_item'       => 'Родительская категория',
+      'parent_item_colon' => 'Родительская категория:',
+      'edit_item'         => 'Редактирование категории',
+      'update_item'       => 'Обновить категорию',
+      'add_new_item'      => 'Добавить новую категорию',
+      'new_item_name'     => 'Новая категория',
+      'menu_name'         => 'Категории Оп Услуги',
+    ),
+    'description'           => '', // описание таксономии
+    'public'                => true,
+    'publicly_queryable'    => null, // равен аргументу public
+    'show_in_nav_menus'     => true, // равен аргументу public
+    'show_ui'               => true, // равен аргументу public
+    'show_in_menu'          => true, // равен аргументу show_ui
+    'show_tagcloud'         => true, // равен аргументу show_ui
+    'show_in_rest'          => null, // добавить в REST API
+    'rest_base'             => null, // $taxonomy
+    'hierarchical'          => false,
+    //'update_count_callback' => '_update_post_term_count',
+    'rewrite'               => true,
+    //'query_var'             => $taxonomy, // название параметра запроса
+    'capabilities'          => array(),
+    'meta_box_cb'           => null, // callback функция. Отвечает за html код метабокса (с версии 3.8): post_categories_meta_box или post_tags_meta_box. Если указать false, то метабокс будет отключен вообще
+    'show_admin_column'     => false, // Позволить или нет авто-создание колонки таксономии в таблице ассоциированного типа записи. (с версии 3.5)
+    '_builtin'              => false,
+    'show_in_quick_edit'    => null, // по умолчанию значение show_ui
+  ) );
+
+  // список параметров: http://wp-kama.ru/function/get_taxonomy_labels
+  register_taxonomy('tax_prof', array('team'), array(
+    'label'                 => '', // определяется параметром $labels->name
+    'labels'                => array(
+      'name'              => 'Категории Команда ',
+      'singular_name'     => 'Категории',
+      'search_items'      => 'Поиск категорий',
+      'all_items'         => 'Все категории',
+      'view_item '        => 'Просмотр Категории',
+      'parent_item'       => 'Родительская категория',
+      'parent_item_colon' => 'Родительская категория:',
+      'edit_item'         => 'Редактирование категории',
+      'update_item'       => 'Обновить категорию',
+      'add_new_item'      => 'Добавить новую категорию',
+      'new_item_name'     => 'Новая категория',
+      'menu_name'         => 'Категории Оп Услуги',
+    ),
+    'description'           => '', // описание таксономии
+    'public'                => true,
+    'publicly_queryable'    => null, // равен аргументу public
+    'show_in_nav_menus'     => true, // равен аргументу public
+    'show_ui'               => true, // равен аргументу public
+    'show_in_menu'          => true, // равен аргументу show_ui
+    'show_tagcloud'         => true, // равен аргументу show_ui
+    'show_in_rest'          => null, // добавить в REST API
+    'rest_base'             => null, // $taxonomy
+    'hierarchical'          => false,
+    //'update_count_callback' => '_update_post_term_count',
+    'rewrite'               => true,
+    //'query_var'             => $taxonomy, // название параметра запроса
+    'capabilities'          => array(),
+    'meta_box_cb'           => null, // callback функция. Отвечает за html код метабокса (с версии 3.8): post_categories_meta_box или post_tags_meta_box. Если указать false, то метабокс будет отключен вообще
+    'show_admin_column'     => false, // Позволить или нет авто-создание колонки таксономии в таблице ассоциированного типа записи. (с версии 3.5)
+    '_builtin'              => false,
+    'show_in_quick_edit'    => null, // по умолчанию значение show_ui
+  ) );
+}
+
+function add_file_types_to_uploads($file_types){
+  $new_filetypes = array();
+  $new_filetypes['svg'] = 'image/svg+xml';
+  $file_types = array_merge($file_types, $new_filetypes );
+  return $file_types;
+}
+add_action('upload_mimes', 'add_file_types_to_uploads');
+

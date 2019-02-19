@@ -1,6 +1,4 @@
 </div>
-
-<?php wp_footer(); ?>
 <footer id="footer" class="footer">
   <div class="inner">
     <div class="footer-top">
@@ -9,12 +7,14 @@
           <?php $services = get_posts(array(
               'post_type' => 'service',
             'numberposts' => 5
-          ));    ?>
+          ));
+          $menuHeader =  wp_get_nav_menu_items('Footer-service'); ?>
+          ?>
           <li class="title">Услуги</li>
-          <?php foreach ($services as $service) : ?>
+          <?php foreach ($menuHeader as $service) : ?>
 
           <li>
-            <a href="<?= get_permalink($service->ID, false); ?>"><?= $service->post_title; ?></a>
+            <a href="<?= $service->url; ?>"><?= $service->title; ?></a>
           </li>
           <?php endforeach; ?>
         </ul>
@@ -54,6 +54,8 @@
     </div>
   </div>
 </footer>
+
 </div>
+<?php wp_footer(); ?>
 </body>
 </html>
