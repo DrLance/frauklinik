@@ -73,6 +73,7 @@ function create_posttype()
       'capability_type' => 'post',
       'hierarchical'    => true,
       'supports'        => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields'),
+      'taxonomies'          => array( 'category' ),
     )
   );
 
