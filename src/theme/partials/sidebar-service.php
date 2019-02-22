@@ -69,7 +69,7 @@
       </div>
         <?php $index++; endforeach;  $index = 1; ?>
     </div>
-    <h6 class="title">Интересные статьи по теме<img src="images/arrow-tab.svg" alt=""></h6>
+    <h6 class="title">Интересные статьи по теме<img src="<?= get_template_directory_uri() ?>/images/arrow-tab.svg" alt=""></h6>
     <div class="news">
       <div class="item">
         <div class="title">здоровье</div>
