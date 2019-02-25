@@ -7,7 +7,7 @@
       <div class="contacts">
         <div class="phone tel"><?= the_field('tel', 'option'); ?></div>
         <div class="callback">
-          <a href="#">оставить заявку</a>
+          <a href="javascript:void(0)" class="ajax-mfp" data-href="popup-callback.php">оставить заявку</a>
         </div>
       </div>
       <nav>
@@ -79,11 +79,11 @@
                 $operationCat = get_posts(array(
                   'post_type'   => 'operation_service',
                   'numberposts' => -1,
-                  'tax_query' => array(
+                  'tax_query'   => array(
                     array(
                       'taxonomy' => 'taxonomy',
                       'field'    => 'term_id',
-                      'terms' =>  $service->object_id
+                      'terms'    => $service->object_id,
                     ),
                   ),
                 )); ?>
@@ -94,6 +94,7 @@
                     $children = get_children(array(
                       'post_parent' => $operation->ID,
                       'numberposts' => -1,
+                      'post_type' => 'operation_service'
                     ));
 
                     if (count($children) === 0) : ?>
@@ -127,61 +128,47 @@
           </div>
         </div>
         <div class="mobile-block">
-
+          <ul>
+            <li class="title">О хирурге</li>
             <ul>
-              <li class="title">О хирурге</li>
-              <ul>
-                <?php $menuHeader = wp_get_nav_menu_items('Swipe-menu-about'); ?>
-                <?php foreach ($menuHeader as $item) : ?>
-                  <li>
-                    <a href="<?= $item->url; ?>"><?= $item->title; ?></a>
-                  </li>
-                <?php endforeach; ?>
-              </ul>
-              <?php $menuHeader = wp_get_nav_menu_items('Swipe-news'); ?>
+              <?php $menuHeader = wp_get_nav_menu_items('Swipe-menu-about'); ?>
               <?php foreach ($menuHeader as $item) : ?>
-                <li class="title-a">
+                <li>
                   <a href="<?= $item->url; ?>"><?= $item->title; ?></a>
                 </li>
               <?php endforeach; ?>
             </ul>
+            <?php $menuHeader = wp_get_nav_menu_items('Swipe-news'); ?>
+            <?php foreach ($menuHeader as $item) : ?>
+              <li class="title-a">
+                <a href="<?= $item->url; ?>"><?= $item->title; ?></a>
+              </li>
+            <?php endforeach; ?>
+          </ul>
+          <ul>
+            <li class="title">Операциии услуги</li>
             <ul>
-              <li class="title">Операциии услуги</li>
-              <ul class="tabs-2-list">
-                <?php
-                $operationService = wp_get_nav_menu_items('Swipe-operation-service');
-                $index            = 1;
-                ?>
-                <?php foreach ($operationService as $item) : ?>
-                  <li>
-                    <a href="#tab-1-<?= $index; ?>"><?= $item->title; ?></a>
-                  </li>
-                  <?php $index++; endforeach;
-                $index = 1; ?>
-              </ul>
-            </ul>
-            <ul class="list-mobile">
-              <?php $menuHeader = wp_get_nav_menu_items('Swipe-news'); ?>
-              <?php foreach ($menuHeader as $item) : ?>
-                <li class="title-a">
-                  <a href="<?= $item->url; ?>"><?= $item->title; ?></a>
+              <?php
+              $operationService = wp_get_nav_menu_items('Swipe-operation-service');
+              $index            = 1;
+              ?>
+              <?php foreach ($operationService as $item) : ?>
+                <li class="title-2">
+                  <?= $item->title; ?>
                 </li>
-              <?php endforeach; ?>
-            </ul>
+                <?php $index++; endforeach; $index = 1; ?>
 
-
-
-            <?php foreach ($operationService as $service) : ?>
+              <?php foreach ($operationService as $service) : ?>
 
                 <?php
                 $operationCat = get_posts(array(
                   'post_type'   => 'operation_service',
                   'numberposts' => -1,
-                  'tax_query' => array(
+                  'tax_query'   => array(
                     array(
                       'taxonomy' => 'taxonomy',
                       'field'    => 'term_id',
-                      'terms' =>  $service->object_id
+                      'terms'    => $service->object_id,
                     ),
                   ),
                 )); ?>
@@ -192,6 +179,7 @@
                     $children = get_children(array(
                       'post_parent' => $operation->ID,
                       'numberposts' => -1,
+                      'post_type' => 'operation_service'
                     ));
 
                     if (count($children) === 0) : ?>
@@ -211,7 +199,7 @@
                         <?php foreach ($children as $child) : ?>
                           <?php if ($operation->ID) : ?>
                           <?php endif; ?>
-                          <li>
+                          <li class="mg-left">
                             <a href="<?= get_permalink($child); ?>"><?= $child->post_title; ?></a>
                           </li>
                         <?php endforeach; ?>
@@ -220,9 +208,10 @@
                   <?php endforeach; ?>
                 </ul>
 
-              <?php $index++; endforeach;
-            $index = 1; ?>
-
+                <?php $index++; endforeach;
+              $index = 1; ?>
+            </ul>
+          </ul>
         </div>
         <div class="right">
           <div class="tel"><?= the_field('tel', 'option'); ?></div>

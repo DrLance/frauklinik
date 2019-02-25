@@ -1,28 +1,31 @@
 <div class="page-of-news-2">
+  <?php $news = get_posts(array(
+    'post_type'   => 'news',
+    'numberposts' => 6,
+  )); ?>
   <div class="inner">
     <div>
       <div class="left">
         <h6 class="title">Интересные статьи по теме</h6>
+        <?php foreach ($news as $item) : ?>
         <div class="item">
-          <div class="date">18 сентября</div>
-          <a href="">Кастинг моделей на бодилифтинг у профессора Блохина!</a>
+            <div class="date"><?= get_the_date(__('d F'), $item); ?></div>
+          <a href="<?= get_permalink($item->ID); ?>"><?= $item->post_title; ?></a>
         </div>
-        <div class="item">
-          <div class="date">18 сентября</div>
-          <a href="">График работы Frau Klinik в дни Новогодних праздников</a>
-        </div>
+        <?php endforeach; ?>
       </div>
       <div class="right">
+        <?php foreach ($news as $item) : ?>
         <div class="item">
-          <a href="" class="img"><img src="images/news-4.jpg" alt=""></a>
-          <div class="date">18 сентября</div>
-          <div class="text"><a href="">2018 Кастинг моделей на бодилифтинг у профессора C.Н. Блохина!</a></div>
+          <a href="" class="img">
+            <img src="<?= the_field('news_img_preview', $item) ?>" alt="">
+          </a>
+          <div class="date"><?= get_the_date(__('d F'), $item); ?></div>
+          <div class="text">
+            <a href="<?= get_permalink($item->ID); ?>"><?= $item->post_title; ?></a>
+          </div>
         </div>
-        <div class="item">
-          <a href="" class="img"><img src="images/news-7.jpg" alt=""></a>
-          <div class="date">18 сентября</div>
-          <div class="text"><a href="">Анестезия в пластической хирургии: ликбез от «Фрау Клиник»</a></div>
-        </div>
+        <?php endforeach; ?>
       </div>
     </div>
   </div>

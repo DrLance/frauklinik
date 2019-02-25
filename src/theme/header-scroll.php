@@ -7,7 +7,7 @@
       <div class="contacts">
         <div class="phone tel"><?= the_field('tel', 'option'); ?></div>
         <div class="callback">
-          <a href="#">оставить заявку</a>
+          <a href="javascript:void(0)" class="ajax-mfp" data-href="popup-callback.html">оставить заявку</a>
         </div>
       </div>
       <nav>
@@ -94,6 +94,7 @@
                     $children = get_children(array(
                       'post_parent' => $operation->ID,
                       'numberposts' => -1,
+                      'post_type' => 'page'
                     ));
 
                     if (count($children) === 0) : ?>
@@ -147,18 +148,69 @@
           <ul>
             <li class="title">Операциии услуги</li>
             <ul>
-              <ul class="tabs-2-list">
+              <?php
+              $operationService = wp_get_nav_menu_items('Swipe-operation-service');
+              $index            = 1;
+              ?>
+              <?php foreach ($operationService as $item) : ?>
+                <li class="title-2">
+                  <?= $item->title; ?>
+                </li>
+                <?php $index++; endforeach; $index = 1; ?>
+
+              <?php foreach ($operationService as $service) : ?>
+
                 <?php
-                $operationService = wp_get_nav_menu_items('Swipe-operation-service');
-                $index            = 1;
-                ?>
-                <?php foreach ($operationService as $item) : ?>
-                  <li>
-                    <a <a href="#tab-1-<?= $index; ?>"><?= $item->title; ?></a>
-                  </li>
-                  <?php $index++; endforeach;
-                $index = 1; ?>
-              </ul>
+                $operationCat = get_posts(array(
+                  'post_type'   => 'operation_service',
+                  'numberposts' => -1,
+                  'tax_query'   => array(
+                    array(
+                      'taxonomy' => 'taxonomy',
+                      'field'    => 'term_id',
+                      'terms'    => $service->object_id,
+                    ),
+                  ),
+                )); ?>
+                <ul>
+                  <?php foreach ($operationCat as $operation) : ?>
+
+                    <?php
+                    $children = get_children(array(
+                      'post_parent' => $operation->ID,
+                      'numberposts' => -1,
+                      'post_type' => 'page'
+                    ));
+
+                    if (count($children) === 0) : ?>
+
+                      <li class="title">
+                        <a href="<?= get_permalink($operation); ?>"><?= $operation->post_title; ?></a>
+                      </li>
+                    <?php else : ?>
+                      <li class="title" style="padding-top: 15px;">
+                        <a href="<?= get_permalink($operation); ?>"><?= $operation->post_title; ?></a>
+                      </li>
+                    <?php endif; ?>
+                    <?php
+
+                    if (count($children) > 0) : ?>
+                      <ul>
+                        <?php foreach ($children as $child) : ?>
+                          <?php if ($operation->ID) : ?>
+                          <?php endif; ?>
+                          <li class="mg-left">
+                            <a href="<?= get_permalink($child); ?>"><?= $child->post_title; ?></a>
+                          </li>
+                        <?php endforeach; ?>
+                      </ul>
+                    <?php endif; ?>
+                  <?php endforeach; ?>
+                </ul>
+
+                <?php $index++; endforeach;
+              $index = 1; ?>
+            </ul>
           </ul>
         </div>
         <div class="right">

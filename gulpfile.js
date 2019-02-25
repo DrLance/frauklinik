@@ -67,6 +67,7 @@ const headerJS = ['./node_modules/jquery/dist/jquery.js','./src/assets/js/swiper
 
 const footerJS = ['./src/assets/js/tabs.js',
   './src/assets/js/scrollspy.js',
+  './src/assets/js/jquery.magnific-popup.min.js',
   './src/assets/js/jquery.fancybox.min.js',
   './src/assets/js/script.js',];
 

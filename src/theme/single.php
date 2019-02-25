@@ -11,7 +11,7 @@
 
       endif;
       ?>
-
+     <?php  if (have_rows('slider_result_work')) : ?>
       <div class="landing-for-services-3">
         <div class="top">
           <h6 class="title">Результаты работы</h6>
@@ -20,11 +20,9 @@
         <div class="swiper-container">
           <div class="swiper-wrapper">
             <?php
-            // check if the repeater field has rows of data
-            if (have_rows('slider_result_work', get_option('page_on_front'))):
 
               // loop through the rows of data
-              while (have_rows('slider_result_work', get_option('page_on_front'))) : the_row();
+              while (have_rows('slider_result_work')) : the_row();
                 $beforeImg = get_sub_field('before_img');
                 $afterImg  = get_sub_field('after_img');
                 ?>
@@ -37,7 +35,7 @@
                   </div>
                 </div>
               <?php endwhile;
-            endif;
+
             ?>
 
           </div>
@@ -46,17 +44,12 @@
           <div class="swiper-button-prev"></div>
         </div>
       </div>
+      <?php endif; ?>
+      <?php if(get_field('special_operation')) : ?>
       <div class="services-6">
-        <h6 class="title">Особенности операции <img src="<?= get_template_directory_uri() ?>/images/arrow-tab.svg" alt=""></h6>
-        <?php the_field('special'); ?>
-        <a href="https://www.youtube.com/watch?v=y06p3sbhITg" class="video-popup" data-rel="media">
-          <img src="<?= get_template_directory_uri() ?>/images/services-3.jpg" alt="">
-          <div class="text">
-            <p>смотреть видео об операции</p>
-            <img src="<?= get_template_directory_uri() ?>/images/arrow-tab.svg" alt="">
-          </div>
-        </a>
+        <?php the_field('special_operation'); ?>
       </div>
+      <?php endif; ?>
       <div class="services-2">
         <?php the_field('special2'); ?>
       </div>
@@ -82,7 +75,7 @@
                 <div class="name">
                   <p><?= $name; ?></p>
                   <?php if($description) : ?>
-                  <span>(осмотр, консультация) врача дерматолога/косметолога первичный</span>
+                  <span><?= $description; ?></span>
                   <?php endif; ?>
                 </div>
                 <div class="price"><?= $price ?></div>

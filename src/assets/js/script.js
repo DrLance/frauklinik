@@ -11,11 +11,15 @@ jQuery(document).ready(function($){
 		if ($(this).hasClass('opened')) {
 			$(this).removeClass('opened');
 			$('header .dropdown-menu').slideUp('slow');
+			$('body').removeClass('no-scroll');
 		}
 		else {
 			$(this).addClass('opened');
 			$('header .dropdown-menu').slideDown('slow');
 			$('header .dropdown-menu').css('display','flex');
+			$('header .dropdown-menu .left .active-block ul li a').removeClass('selected');
+			$('header .dropdown-menu .left .opacity-block div').removeClass('tab-active').css('display','none');
+			$('body').addClass('no-scroll');
 		}
 	});
 
@@ -158,18 +162,18 @@ jQuery(document).ready(function($){
 	});
 
 	//работа гамбургер меню на мобилке
-	$(document).on('click','header .dropdown-menu .left ul li.title', function(){
-		if ($(window).width() < 830) {
-			if ($(this).parent('ul').hasClass('opened')) {
-				$(this).parent('ul').removeClass('opened');
-				$(this).siblings('ul').slideUp('slow');
-			}
-			else {
-				$(this).parent('ul').addClass('opened');
-				$(this).siblings('ul').slideDown('slow');
-			}
-		}
-	});
+	// $(document).on('click','header .dropdown-menu .left ul li.title', function(){
+	// 	if ($(window).width() < 830) {
+	// 		if ($(this).parent('ul').hasClass('opened')) {
+	// 			$(this).parent('ul').removeClass('opened');
+	// 			$(this).siblings('ul').slideUp('slow');
+	// 		}
+	// 		else {
+	// 			$(this).parent('ul').addClass('opened');
+	// 			$(this).siblings('ul').slideDown('slow');
+	// 		}
+	// 	}
+	// });
 
 	//работа асайда на мобилке
 	$(document).on('click','aside > .title-mobile', function(){
@@ -456,6 +460,53 @@ jQuery(document).ready(function($){
 			.addTo(controller);
 		};
 	}
+
+	//раскрытие подменю в хэдере на мобилке
+	$(document).on('click','header .dropdown-menu .mobile-block > ul > li.title', function(){
+		if ($(window).width() < 830) {
+			if ($(this).hasClass('opened')) {
+				$(this).removeClass('opened');
+				$(this).next('ul').slideUp('slow');
+				$('header .dropdown-menu .mobile-block > ul > li.title + ul li.title-2').removeClass('opened');
+				$('header .dropdown-menu .mobile-block > ul > li.title + ul li.title-2 + ul').slideUp('slow');
+			}
+			else {
+				$(this).addClass('opened');
+				$(this).next('ul').slideDown('slow');
+			}
+		}
+	});
+	$(document).on('click','header .dropdown-menu .mobile-block > ul > li.title + ul li.title-2', function(){
+		if ($(window).width() < 830) {
+			if ($(this).hasClass('opened')) {
+				$(this).removeClass('opened');
+				$(this).next('ul').slideUp('slow');
+			}
+			else {
+				$(this).addClass('opened');
+				$(this).next('ul').slideDown('slow');
+			}
+		}
+	});
+
+	//открытие и закрытие попапа с формой связи
+	$(document).on('click','.ajax-mfp',function(){
+		var a = $(this);
+		$.magnificPopup.open({
+			items: { src: a.attr('data-href') },
+			type: 'ajax',    
+			overflowY: 'scroll',
+			removalDelay: 300,
+			mainClass: 'my-mfp-zoom-in',
+			callbacks: {
+				open: function () {
+
+				}
+			}
+		});
+		return false;
+	});
+
 
 
 });

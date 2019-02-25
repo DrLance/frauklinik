@@ -672,7 +672,7 @@
 		margin-top: 40px;
 	}
 	.biography-1 {
-		background: url(./images/blokhin-sergey-bg-3.jpg) no-repeat;
+		background: url(../images/blokhin-sergey-bg-3.jpg) no-repeat;
 		background-size: cover;
 	}
 	.biography-1 .inner {
@@ -757,61 +757,10 @@
 		background: linear-gradient(180deg, #1D2538 0%, #1E2433 100%);
 		display: none;
 	}
-	/* Временно */
 	header .dropdown-menu .left {
-		/*width: 100%;
-		padding: 0;
-		-ms-align-items: initial;
-		align-items: initial;
-		height: initial;*/
 		display: none;
-	}/*
-	header .dropdown-menu .left > ul {
-		width: 100%;
-		margin-bottom: 25px;
 	}
-	header .dropdown-menu .left ul li.title {
-		max-width: initial;
-		margin-bottom: 0px;
-		cursor: pointer;
-		position: relative;
-	}
-	header .dropdown-menu .left ul li.title:after {
-		content: '';
-		position: absolute;
-		top: 5px;
-		right: 0;
-		background: url(./images/arrow-mobile.svg) no-repeat;
-		width: 12px;
-		height: 11px;
-		background-size: cover;
-		-webkit-transition: 0.3s;
-		-o-transition: 0.3s;
-		transition: 0.3s;
-	}
-	header .dropdown-menu .left > ul.opened li.title:after {
-		transform: rotate(180deg);
-		top: 8px;
-	}
-	header .dropdown-menu .left ul > ul {
-		display: none;
-		margin-top: 25px;
-	}*/
-	/* Временно */
-	/*header .dropdown-menu .left .active-block ul li.title {
-		max-width: 160px;
-	}*/
-	/* Временно */
-	/*header .dropdown-menu .left .active-block {
-		width: 100%;
-		padding: 50px 30px;
-	}*/
-	/* Временно */
 	header .dropdown-menu .left .opacity-block {
-		/*overflow: initial;
-		width: 100%;
-		margin-top: 0;
-		padding: 50px 30px;*/
 		display: none;
 	}
 	header .dropdown-menu .mobile-block {
@@ -828,7 +777,7 @@
 	}
 	header .dropdown-menu .right {
 		width: 100%;
-		background: url(./images/blokhin-sergey-bg-2.png) no-repeat;
+		background: url(../images/blokhin-sergey-bg-2.png) no-repeat;
 		background-size: cover;
 		padding: 48px 0px 48px 30px;
 	}
@@ -865,7 +814,7 @@
 		width: 33.33%;
 	}
 	.main-1 {
-		background: url(./images/blokhin-sergey-bg-3.jpg) no-repeat;
+		background: url(../images/blokhin-sergey-bg-3.jpg) no-repeat;
 		background-size: cover;
 	}
 	.main-1:before {
@@ -906,7 +855,7 @@
 	}
 	.landing-for-services-7 .callback:before {
 		content: '';
-		background: url(./images/blokhin-sergey-3.png) no-repeat;
+		background: url(../images/blokhin-sergey-3.png) no-repeat;
 		position: absolute;
 		right: 0;
 		bottom: 0;
@@ -2190,6 +2139,14 @@
 	}
 	header .dropdown-menu .mobile-block > ul + ul {
 		margin-top: 30px;
+	}
+	.popup.callback {
+		max-height: initial;
+		padding: 110px 0;
+	}
+	.popup.callback .mfp-close {
+		right: 10px;
+		top: 10px;
 	}
 
 }

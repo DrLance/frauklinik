@@ -47,6 +47,7 @@
             <?php $children = get_children(array(
             'post_parent' => $post->ID,
             'numberposts' => -1,
+            'post_type' => 'operation_service'
             )); ?>
           <?php if(count($children) === 0) : ?>
           <li>
@@ -71,19 +72,18 @@
     </div>
     <h6 class="title">Интересные статьи по теме<img src="<?= get_template_directory_uri() ?>/images/arrow-tab.svg" alt=""></h6>
     <div class="news">
+      <?php $news = get_posts(array(
+        'post_type'   => 'news',
+        'numberposts' => 6,
+      )); ?>
 
+      <?php foreach ($news as $item) : ?>
       <div class="item">
-        <div class="title">здоровье</div>
-        <a href="">Кастинг моделей на бодилифтинг у профессора Блохина!</a>
+        <?php $terms =  get_the_terms($item,'category_news'); $name = $terms[0]->name ?? $terms[0]->name; ?>
+        <div class="title"><?= $name;  ?></div>
+        <a href="<?= get_permalink($item->ID); ?>"><?= $item->post_title; ?></a>
       </div>
-      <div class="item">
-        <div class="title">график</div>
-        <a href="">График работы Frau Klinik в дни Новогодних праздников</a>
-      </div>
-      <div class="item">
-        <div class="title">мода</div>
-        <a href="">Кастинг моделей на бодилифтинг у профессора Блохина!</a>
-      </div>
+      <?php endforeach; ?>
     </div>
   </div>
 </aside>

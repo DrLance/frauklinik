@@ -7,11 +7,12 @@
       <div class="contacts">
         <div class="phone tel"><?= the_field('tel', 'option'); ?></div>
         <div class="callback">
-          <a href="#">оставить заявку</a>
+          <a href="javascript:void(0)" class="ajax-mfp" data-href="popup-callback.html">оставить заявку</a>
         </div>
       </div>
       <nav>
         <ul>
+
           <?php $menuHeader = wp_get_nav_menu_items('Header-contact'); ?>
           <?php foreach ($menuHeader as $item) : ?>
             <li>
@@ -93,6 +94,7 @@
                     $children = get_children(array(
                       'post_parent' => $operation->ID,
                       'numberposts' => -1,
+                      'post_type' => 'operation_service'
                     ));
 
                     if (count($children) === 0) : ?>
@@ -146,97 +148,68 @@
           <ul>
             <li class="title">Операциии услуги</li>
             <ul>
-              <li class="title-2">Пластика лица</li>
-              <ul>
-                <li><a href="">Круговая подтяжка лица</a></li>
-                <li><a href="">Эндоскопический лифтинг лица</a></li>
-                <li class="mg-left"><a href="">Эндоскопический лифтинг лба</a></li>
-                <li class="mg-left last"><a href="">Эндоскопический лифтинг средней зоны лица</a></li>
-                <li><a href="">SMAS лифтинг</a></li>
-                <li><a href="">Пластика подбородка (ментопластика)</a></li>
-                <li><a href="">Пластика шеи (платизмопластика)</a></li>
-                <li><a href="">Пластика щек (удаление комков Биша)</a></li>
-                <li><a href="">Пластика губ (операция Булхорн)</a></li>
-                <li><a href="">Макс-лифтинг лица</a></li>
-                <li><a href="">Пластика подбородка (ментопластика)</a></li>
-                <li><a href="">Пластика шеи (платизмопластика)</a></li>
-                <li><a href="">Пластика щек (удаление комков Биша)</a></li>
-                <li><a href="">Пластика губ (операция Булхорн)</a></li>
-                <li><a href="">Макс-лифтинг лица</a></li>
-                <li><a href="">Пластика подбородка (ментопластика)</a></li>
-                <li><a href="">Пластика шеи (платизмопластика)</a></li>
-                <li><a href="">Пластика щек (удаление комков Биша)</a></li>
-                <li><a href="">Пластика губ (операция Булхорн)</a></li>
-                <li><a href="">Макс-лифтинг лица</a></li>
-              </ul>
-              <li class="title-2">Интимная пластика</li>
-              <ul>
-                <li><a href="">Вагинопластика</a></li>
-                <li class="mg-left"><a href="">Задняя кольпорафия</a></li>
-                <li class="mg-left"><a href="">Полная кольпорафия</a></li>
-                <li class="mg-left"><a href="">Леваторопластика</a></li>
-                <li class="mg-left"><a href="">Пластика промежности</a></li>
-                <li class="mg-left"><a href="">Лазерное омоложение влагалища</a></li>
-                <li class="mg-left"><a href="">Контурная пластика влагалища</a></li>
-                <li class="mg-left last"><a href="">Пластика влагалища</a></li>
-                <li><a href="">Лабиопластика</a></li>
-                <li class="mg-left"><a href="">Пластика малых половых губ</a></li>
-                <li class="mg-left"><a href="">Пластика больших половых губ</a></li>
-                <li class="mg-left"><a href="">Пластика области клитора</a></li>
-                <li class="mg-left last"><a href="">Пластика области лобка</a></li>
-                <li><a href="">Стрессовое недержание мочи у женщин</a></li>
-                <li><a href="">Гименопластика</a></li>
-                <li><a href="">Хирургическая дефлорация</a></li>
-              </ul>
-              <li class="title-2">Пластика груди</li>
-              <ul>
-                <li><a href="">Увеличение груди</a></li>
-                <li class="mg-left"><a href="">Увеличение имплантами</a></li>
-                <li class="mg-left last"><a href="">Липофилинг груди</a></li>
-                <li><a href="">Уменьшение груди</a></li>
-                <li class="mg-left"><a href="">Подтяжка груди с увеличением</a></li>
-                <li class="mg-left last"><a href="">Подтяжка груди нитями</a></li>
-                <li><a href="">Реконструкция груди</a></li>
-                <li><a href="">Повторная маммопластика</a></li>
-                <li><a href="">Пластика ареолы и сосков</a></li>
-                <li><a href="">Коррекция тубулярной груди</a></li>
-                <li><a href="">Гинекомастия</a></li>
-              </ul>
-              <li class="title-2">Абдоминопластика</li>
-              <ul>
-                <li><a href="">Миниабдоминопластика</a></li>
-                <li><a href="">Эндоскопическая абдоминопластика</a></li>
-                <li><a href="">Абдоминопластика после родов</a></li>
-              </ul>
-              <li class="title-2">Ринопластика</li>
-              <ul>
-                <li><a href="">Открытая ринопластика</a></li>
-                <li><a href="">Закрытая ринопластика</a></li>
-                <li><a href="">Септопластика</a></li>
-                <li><a href="">Риносептопластика</a></li>
-                <li><a href="">Повторная ринопластика</a></li>
-                <li><a href="">Безоперационная ринопластика</a></li>
-              </ul>
-              <li class="title-2">Брефаропластика</li>
-              <ul>
-                <li><a href="">Пластика верхних век</a></li>
-                <li><a href="">Пластика нижних век</a></li>
-                <li><a href="">Пластика азиатских век</a></li>
-                <li><a href="">Трансконъюктивальная пластика нижних век</a></li>
-              </ul>
-              <li class="title-2">Липосакция</li>
-              <ul>
-                <li><a href="">Липосакция лица</a></li>
-                <li><a href="">Липосакция бедер</a></li>
-                <li><a href="">Липосакция коленей</a></li>
-                <li><a href="">Липосакция рук</a></li>
-                <li><a href="">Липосакция живота</a></li>
-                <li><a href="">Липосакция у мужчин</a></li>
-              </ul>
-              <li class="title-2">Отопластика</li>
-              <ul>
-                <li><a href="">Отопластика (Пластика ушей)</a></li>
-              </ul>
+              <?php
+              $operationService = wp_get_nav_menu_items('Swipe-operation-service');
+              $index            = 1;
+              ?>
+              <?php foreach ($operationService as $item) : ?>
+                <li class="title-2">
+                  <?= $item->title; ?>
+                </li>
+                <?php $index++; endforeach; $index = 1; ?>
+
+              <?php foreach ($operationService as $service) : ?>
+
+                <?php
+                $operationCat = get_posts(array(
+                  'post_type'   => 'operation_service',
+                  'numberposts' => -1,
+                  'tax_query'   => array(
+                    array(
+                      'taxonomy' => 'taxonomy',
+                      'field'    => 'term_id',
+                      'terms'    => $service->object_id,
+                    ),
+                  ),
+                )); ?>
+                <ul>
+                  <?php foreach ($operationCat as $operation) : ?>
+
+                    <?php
+                    $children = get_children(array(
+                      'post_parent' => $operation->ID,
+                      'numberposts' => -1,
+                      'post_type' => 'operation_service'
+                    ));
+
+                    if (count($children) === 0) : ?>
+
+                      <li class="title">
+                        <a href="<?= get_permalink($operation); ?>"><?= $operation->post_title; ?></a>
+                      </li>
+                    <?php else : ?>
+                      <li class="title" style="padding-top: 15px;">
+                        <a href="<?= get_permalink($operation); ?>"><?= $operation->post_title; ?></a>
+                      </li>
+                    <?php endif; ?>
+                    <?php
+
+                    if (count($children) > 0) : ?>
+                      <ul>
+                        <?php foreach ($children as $child) : ?>
+                          <?php if ($operation->ID) : ?>
+                          <?php endif; ?>
+                          <li class="mg-left">
+                            <a href="<?= get_permalink($child); ?>"><?= $child->post_title; ?></a>
+                          </li>
+                        <?php endforeach; ?>
+                      </ul>
+                    <?php endif; ?>
+                  <?php endforeach; ?>
+                </ul>
+
+                <?php $index++; endforeach;
+              $index = 1; ?>
             </ul>
           </ul>
         </div>
@@ -275,14 +248,12 @@
     <div class="navigation list">
       <div class="inner">
         <div>
-          <?php $menuHeader = wp_get_nav_menu_items('Header'); ?>
-          <?php foreach ($menuHeader as $item) : ?>
-            <a href="<?= $item->url; ?>" class="back"><?= $item->title; ?></a>
-          <?php endforeach; ?>
+
+          <?php if ( function_exists( 'dimox_breadcrumbs' ) ) dimox_breadcrumbs(); ?>
           <h3 class="title"><?php the_title(); ?></h3>
         </div>
         <div class="button">
-          <a href="" class="btn btn-arrow">Оставить заявку
+          <a href="javascript:void(0)" class="ajax-mfp btn btn-arrow" data-href="<?= get_template_directory_uri() ?>/page-callback.php" >Оставить заявку
             <img src="<?= get_template_directory_uri() ?>/images/arrow-btn.svg" alt="">
           </a>
         </div>

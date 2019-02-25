@@ -7,7 +7,7 @@
         <h3 class="title">Инвестируйте в себя, вместе с пластическим хирургом Сергеем Блохиным</h3>
         <p>Признанный специалист в области пластической хирургии, доктор медицины, профессор и автор множества научных
           работ</p>
-        <a href="" class="btn btn-arrow">оставить заявку <img
+        <a href="javascript:void(0)" class="btn btn-arrow ajax-mfp" data-href="<?= get_template_directory_uri() ?>/popup-callback.php">оставить заявку <img
               src="<?= get_template_directory_uri() ?>/images/arrow-btn.svg" alt=""></a>
       </div>
       <div class="img">

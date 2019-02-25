@@ -47,6 +47,7 @@
             <?php $children = get_children(array(
             'post_parent' => $post->ID,
             'numberposts' => -1,
+            'post_type' => 'operation_service'
             )); ?>
           <?php if(count($children) === 0) : ?>
           <li>
