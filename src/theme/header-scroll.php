@@ -1,4 +1,4 @@
-<div id="wrapper">
+<div id="wrapper" class="wrapper-scroll">
   <header id="header" class="header-index">
     <div class="inner">
       <div class="logo">
@@ -56,7 +56,7 @@
                 ?>
                 <?php foreach ($operationService as $item) : ?>
                   <li>
-                    <a href="#tab-1-<?= $index; ?>"><?= $item->title; ?></a>
+                    <a <a href="#tab-1-<?= $index; ?>"><?= $item->title; ?></a>
                   </li>
                   <?php $index++; endforeach;
                 $index = 1; ?>
@@ -79,11 +79,11 @@
                 $operationCat = get_posts(array(
                   'post_type'   => 'operation_service',
                   'numberposts' => -1,
-                  'tax_query' => array(
+                  'tax_query'   => array(
                     array(
                       'taxonomy' => 'taxonomy',
                       'field'    => 'term_id',
-                      'terms' =>  $service->object_id
+                      'terms'    => $service->object_id,
                     ),
                   ),
                 )); ?>
@@ -127,26 +127,26 @@
           </div>
         </div>
         <div class="mobile-block">
-
+          <ul>
+            <li class="title">О хирурге</li>
             <ul>
-              <li class="title">О хирурге</li>
-              <ul>
-                <?php $menuHeader = wp_get_nav_menu_items('Swipe-menu-about'); ?>
-                <?php foreach ($menuHeader as $item) : ?>
-                  <li>
-                    <a href="<?= $item->url; ?>"><?= $item->title; ?></a>
-                  </li>
-                <?php endforeach; ?>
-              </ul>
-              <?php $menuHeader = wp_get_nav_menu_items('Swipe-news'); ?>
+              <?php $menuHeader = wp_get_nav_menu_items('Swipe-menu-about'); ?>
               <?php foreach ($menuHeader as $item) : ?>
-                <li class="title-a">
+                <li>
                   <a href="<?= $item->url; ?>"><?= $item->title; ?></a>
                 </li>
               <?php endforeach; ?>
             </ul>
+            <?php $menuHeader = wp_get_nav_menu_items('Swipe-news'); ?>
+            <?php foreach ($menuHeader as $item) : ?>
+              <li class="title-a">
+                <a href="<?= $item->url; ?>"><?= $item->title; ?></a>
+              </li>
+            <?php endforeach; ?>
+          </ul>
+          <ul>
+            <li class="title">Операциии услуги</li>
             <ul>
-              <li class="title">Операциии услуги</li>
               <ul class="tabs-2-list">
                 <?php
                 $operationService = wp_get_nav_menu_items('Swipe-operation-service');
@@ -154,75 +154,12 @@
                 ?>
                 <?php foreach ($operationService as $item) : ?>
                   <li>
-                    <a href="#tab-1-<?= $index; ?>"><?= $item->title; ?></a>
+                    <a <a href="#tab-1-<?= $index; ?>"><?= $item->title; ?></a>
                   </li>
                   <?php $index++; endforeach;
                 $index = 1; ?>
               </ul>
-            </ul>
-            <ul class="list-mobile">
-              <?php $menuHeader = wp_get_nav_menu_items('Swipe-news'); ?>
-              <?php foreach ($menuHeader as $item) : ?>
-                <li class="title-a">
-                  <a href="<?= $item->url; ?>"><?= $item->title; ?></a>
-                </li>
-              <?php endforeach; ?>
-            </ul>
-
-
-
-            <?php foreach ($operationService as $service) : ?>
-
-                <?php
-                $operationCat = get_posts(array(
-                  'post_type'   => 'operation_service',
-                  'numberposts' => -1,
-                  'tax_query' => array(
-                    array(
-                      'taxonomy' => 'taxonomy',
-                      'field'    => 'term_id',
-                      'terms' =>  $service->object_id
-                    ),
-                  ),
-                )); ?>
-                <ul>
-                  <?php foreach ($operationCat as $operation) : ?>
-
-                    <?php
-                    $children = get_children(array(
-                      'post_parent' => $operation->ID,
-                      'numberposts' => -1,
-                    ));
-
-                    if (count($children) === 0) : ?>
-
-                      <li class="title">
-                        <a href="<?= get_permalink($operation); ?>"><?= $operation->post_title; ?></a>
-                      </li>
-                    <?php else : ?>
-                      <li class="title" style="padding-top: 15px;">
-                        <a href="<?= get_permalink($operation); ?>"><?= $operation->post_title; ?></a>
-                      </li>
-                    <?php endif; ?>
-                    <?php
-
-                    if (count($children) > 0) : ?>
-                      <ul>
-                        <?php foreach ($children as $child) : ?>
-                          <?php if ($operation->ID) : ?>
-                          <?php endif; ?>
-                          <li>
-                            <a href="<?= get_permalink($child); ?>"><?= $child->post_title; ?></a>
-                          </li>
-                        <?php endforeach; ?>
-                      </ul>
-                    <?php endif; ?>
-                  <?php endforeach; ?>
-                </ul>
-
-              <?php $index++; endforeach;
-            $index = 1; ?>
-
+          </ul>
         </div>
         <div class="right">
           <div class="tel"><?= the_field('tel', 'option'); ?></div>
@@ -255,6 +192,7 @@
       </div>
     </div>
   </header>
+
   <div id="middle">
 
 

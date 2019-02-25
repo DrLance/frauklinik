@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-<head>
-  <?php wp_head(); ?>
-</head>
-<body <?php body_class(); ?>>
 <div id="wrapper">
   <header id="header">
     <div class="inner">
@@ -21,7 +15,7 @@
           <?php $menuHeader = wp_get_nav_menu_items('Header-contact'); ?>
           <?php foreach ($menuHeader as $item) : ?>
             <li>
-              <a href="<?= $item->url; ?>"><?= $item->title; ?></a>
+              <a href="<?= $item->url; ?>" ><?= $item->title; ?></a>
             </li>
           <?php endforeach; ?>
         </ul>
@@ -62,7 +56,7 @@
                 ?>
                 <?php foreach ($operationService as $item) : ?>
                   <li>
-                    <a <a href="#tab-1-<?= $index; ?>"><?= $item->title; ?></a>
+                    <a href="#tab-1-<?= $index; ?>"><?= $item->title; ?></a>
                   </li>
                   <?php $index++; endforeach;
                 $index = 1; ?>
@@ -283,7 +277,7 @@
         <div>
           <?php $menuHeader = wp_get_nav_menu_items('Header'); ?>
           <?php foreach ($menuHeader as $item) : ?>
-            <a href="<?= $item->url; ?>"><?= $item->title; ?></a>
+            <a href="<?= $item->url; ?>" class="back"><?= $item->title; ?></a>
           <?php endforeach; ?>
           <h3 class="title"><?php the_title(); ?></h3>
         </div>

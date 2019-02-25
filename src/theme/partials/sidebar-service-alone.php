@@ -69,21 +69,5 @@
       </div>
         <?php $index++; endforeach;  $index = 1; ?>
     </div>
-    <h6 class="title">Интересные статьи по теме<img src="<?= get_template_directory_uri() ?>/images/arrow-tab.svg" alt=""></h6>
-    <div class="news">
-
-      <div class="item">
-        <div class="title">здоровье</div>
-        <a href="">Кастинг моделей на бодилифтинг у профессора Блохина!</a>
-      </div>
-      <div class="item">
-        <div class="title">график</div>
-        <a href="">График работы Frau Klinik в дни Новогодних праздников</a>
-      </div>
-      <div class="item">
-        <div class="title">мода</div>
-        <a href="">Кастинг моделей на бодилифтинг у профессора Блохина!</a>
-      </div>
-    </div>
   </div>
 </aside>

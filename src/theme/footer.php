@@ -9,7 +9,7 @@
             'numberposts' => 5
           ));
           $menuHeader =  wp_get_nav_menu_items('Footer-service'); ?>
-          ?>
+
           <li class="title">Услуги</li>
           <?php foreach ($menuHeader as $service) : ?>
 

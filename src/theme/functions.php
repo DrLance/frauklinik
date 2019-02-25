@@ -77,20 +77,6 @@ function create_posttype()
     )
   );
 
-  register_post_type('service',
-    array(
-      'labels'          => array(
-        'name'          => __('Услуги'),
-        'singular_name' => __('Услуга'),
-      ),
-      'public'          => true,
-      'capability_type' => 'page',
-      'hierarchical'    => true,
-      'supports'        => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields'),
-      'taxonomies'          => array( 'category' ),
-    )
-  );
-
   register_post_type('news',
     array(
       'labels'          => array(
@@ -179,6 +165,42 @@ function create_taxonomy(){
       'add_new_item'      => 'Добавить новую категорию',
       'new_item_name'     => 'Новая категория',
       'menu_name'         => 'Категории Оп Услуги',
+    ),
+    'description'           => '', // описание таксономии
+    'public'                => true,
+    'publicly_queryable'    => null, // равен аргументу public
+    'show_in_nav_menus'     => true, // равен аргументу public
+    'show_ui'               => true, // равен аргументу public
+    'show_in_menu'          => true, // равен аргументу show_ui
+    'show_tagcloud'         => true, // равен аргументу show_ui
+    'show_in_rest'          => null, // добавить в REST API
+    'rest_base'             => null, // $taxonomy
+    'hierarchical'          => false,
+    //'update_count_callback' => '_update_post_term_count',
+    'rewrite'               => true,
+    //'query_var'             => $taxonomy, // название параметра запроса
+    'capabilities'          => array(),
+    'meta_box_cb'           => null, // callback функция. Отвечает за html код метабокса (с версии 3.8): post_categories_meta_box или post_tags_meta_box. Если указать false, то метабокс будет отключен вообще
+    'show_admin_column'     => false, // Позволить или нет авто-создание колонки таксономии в таблице ассоциированного типа записи. (с версии 3.5)
+    '_builtin'              => false,
+    'show_in_quick_edit'    => null, // по умолчанию значение show_ui
+  ) );
+
+  register_taxonomy('category_news', array('news'), array(
+    'label'                 => '', // определяется параметром $labels->name
+    'labels'                => array(
+      'name'              => 'Категории Новостей ',
+      'singular_name'     => 'Категории',
+      'search_items'      => 'Поиск категорий',
+      'all_items'         => 'Все категории',
+      'view_item '        => 'Просмотр Категории',
+      'parent_item'       => 'Родительская категория',
+      'parent_item_colon' => 'Родительская категория:',
+      'edit_item'         => 'Редактирование категории',
+      'update_item'       => 'Обновить категорию',
+      'add_new_item'      => 'Добавить новую категорию',
+      'new_item_name'     => 'Новая категория',
+      'menu_name'         => 'Категории Новостей',
     ),
     'description'           => '', // описание таксономии
     'public'                => true,

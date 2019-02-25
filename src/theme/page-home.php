@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+
 <div class="main">
   <div class="main-1">
     <div class="inner">
@@ -16,8 +17,8 @@
     </div>
   </div>
   <div class="inner">
+    <?php $bio = get_field('short_bio'); ?>
     <div class="main-2">
-      <?php $bio = get_field('short_bio'); ?>
       <div class="img">
         <a href="<?= $bio['youtube']; ?>" class="video-popup" data-rel="media">
           <img src="<?= $bio['img']; ?>" alt="">
@@ -31,9 +32,15 @@
           <img src="<?= get_template_directory_uri() ?>/images/tnt.png" alt="">
         </div>
       </div>
+
       <div class="text">
-      <?= $bio['description']; ?>
+        <div class="top">
+          <h2 class="title">Краткая биография </h2>
+          <a href="<?= get_permalink(get_page_by_path('biography')) ?>">Подробнее</a>
+        </div>
+        <?= $bio['description']; ?>
       </div>
+
     </div>
   </div>
   <div class="main-3">
@@ -41,7 +48,7 @@
       <div>
         <div class="top">
           <h2 class="title">Результаты работы</h2>
-          <a href="/works/" class="btn">Все работы</a>
+          <a href="<?= get_permalink(get_page_by_path('works')) ?>" class="btn">Все работы</a>
         </div>
         <p>В клинике Сергея Блохина используется самое современное оборудование, а новейшие методики пластической
           хирургии</p>
@@ -83,23 +90,23 @@
           В клинике Сергея Блохина используется самое современное оборудование,
           а новейшие методики пластической хирургиии косметологии.
         </p>
-        <a href="/news/" class="btn">Все новости</a>
+        <a href="<?= get_permalink(get_page_by_path('news')) ?>" class="btn">Все новости</a>
       </div>
       <div class="news-slider">
         <div class="swiper-wrapper">
           <?php $news = get_posts(array(
-            'post_type' => 'news',
-            'numberposts' => 6
-          ));    ?>
+            'post_type'   => 'news',
+            'numberposts' => 6,
+          )); ?>
 
           <?php foreach ($news as $item) : ?>
 
             <div class="swiper-slide">
               <a href="<?= get_permalink($item->ID); ?>">
                 <img src="<?= get_template_directory_uri() ?>/images/arrow-tab.svg" alt="" class="arrow">
-                <img src="<?= get_template_directory_uri() ?>/images/news-8.jpg" alt="">
+                <img src="<?= the_field('news_img_preview', $item) ?>" alt="">
                 <div class="text">
-                  <div class="data"><?= get_the_date(__('d F'),$item); ?></div>
+                  <div class="data"><?= get_the_date(__('d F'), $item); ?></div>
                   <h6 class="title"><?= $item->post_title; ?></h6>
                 </div>
               </a>
@@ -118,8 +125,9 @@
     <div class="inner">
       <img src="<?= get_template_directory_uri() ?>/images/news-bg-treug.svg" alt="" class="treug-1">
       <h3 class="title">Команда и ученики работающие по методике С. Н.Блохина</h3>
-      <p>Признанный специалист в области пластической хирургии, доктор медицины, профессор и автор множества научных работ</p>
-      <a href="/students/" class="btn">Посмотреть учеников</a>
+      <p>Признанный специалист в области пластической хирургии, доктор медицины, профессор и автор множества научных
+        работ</p>
+      <a href="<?= get_permalink(get_page_by_path('students')) ?>" class="btn">Посмотреть учеников</a>
       <img src="<?= get_template_directory_uri() ?>/images/collective.png" alt="" class="collective">
       <img src="<?= get_template_directory_uri() ?>/images/news-bg-treug.svg" alt="" class="treug-2">
     </div>
@@ -155,15 +163,8 @@
       </div>
     </div>
   </div>
+  <iframe src="https://snazzymaps.com/embed/124986" width="100%" height="420px" style="border:none;"></iframe>
 </div>
-<?php
-if (have_posts()) :
-  while (have_posts()) :
-    the_post();
-  endwhile;
 
-endif;
-?>
-<iframe src="https://snazzymaps.com/embed/124986" width="100%" height="420px" style="border:none;"></iframe>
-</div>
+
 <?php get_footer(); ?>
