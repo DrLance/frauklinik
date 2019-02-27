@@ -2,7 +2,9 @@
   <header id="header" class="header-index">
     <div class="inner">
       <div class="logo">
-        <span><?= bloginfo('description'); ?></span>
+        <a href="<?= site_url(); ?>">
+          <span><?= bloginfo('description'); ?></span>
+        </a>
       </div>
       <div class="contacts">
         <div class="phone tel"><?= the_field('tel', 'option'); ?></div>
@@ -215,7 +217,7 @@
         </div>
         <div class="right">
           <div class="tel"><?= the_field('tel', 'option'); ?></div>
-          <a href="" class="btn mobile">Оставить заявку</a>
+          <a href="" class="btn mobile ajax-mfp">Оставить заявку</a>
           <?= the_field('adress', 'option'); ?>
           <div class="email">
             <p><?= the_field('email_all', 'option'); ?></p>
@@ -225,7 +227,7 @@
             <p><?= the_field('email_adv', 'option'); ?></p>
             <span>реклама и сотрудничество</span>
           </div>
-          <a href="" class="btn">оставить заявку</a>
+          <a href="" class="btn ajax-mfp">оставить заявку</a>
           <div class="social-networks">
             <a href="<?= the_field('whatsapp', 'option'); ?>">
               <img src="<?= get_template_directory_uri() ?>/images/whatsapp.svg" alt="">

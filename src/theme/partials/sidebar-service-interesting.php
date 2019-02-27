@@ -1,27 +1,48 @@
+<?php
+wp_reset_postdata();
+global $post;
+
+$terms = wp_get_post_terms($post->ID, 'taxonomy');
+
+$termName = isset($terms[0]) ? $terms[0]->name : '';
+$termID   = isset($terms[0]) ? $terms[0]->term_id : 1;
+
+$operations = get_posts(array(
+  'post_type'   => 'operation_service',
+  'numberposts' => 3,
+  'exclude'     => $post->ID,
+  'tax_query'   => array(
+    array(
+        'taxonomy' => 'taxonomy',
+        'field' => 'term_id',
+        'terms' => $termID
+    ),
+  ),
+));
+?>
 <div class="page-of-news-2">
   <div class="inner">
     <div>
       <div class="left">
-        <h6 class="title">Другие операции на груди:</h6>
-        <div class="item">
-          <a href="">Удаление имплантов</a>
-        </div>
-        <div class="item">
-          <a href="">Замена имплантов</a>
-        </div>
-        <div class="item">
-          <a href="">Коррекция местоположения импланта</a>
-        </div>
+        <h6 class="title">Другие операции на <?= mb_strtolower($termName); ?> :</h6>
+        <?php foreach ($operations as $operation) : ?>
+          <div class="item">
+            <a href="<?= get_permalink($operation); ?>"><?= $operation->post_title; ?></a>
+          </div>
+        <?php endforeach; ?>
       </div>
       <div class="right">
-        <div class="item">
-          <a href="" class="img"><img src="images/news-10.jpg" alt=""></a>
-          <div class="text"><a href="">Уменьшение ареол</a></div>
-        </div>
-        <div class="item">
-          <a href="" class="img"><img src="images/news-11.jpg" alt=""></a>
-          <div class="text"><a href="">Первый месяц после  увеличения груди</a></div>
-        </div>
+        <?php foreach ($operations as $operation) : ?>
+          <div class="item">
+            <a href="<?= get_permalink($operation); ?>" class="img">
+              <img src="<?= the_field('sidebar_img_preview', $operation) ?>" alt="">
+            </a>
+            <div class="text">
+              <a href="<?= get_permalink($operation); ?>"><?= $operation->post_title; ?></a>
+            </div>
+          </div>
+        <?php endforeach; ?>
+
       </div>
     </div>
   </div>

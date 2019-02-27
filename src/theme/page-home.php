@@ -1,13 +1,14 @@
 <?php get_header(); ?>
-
 <div class="main">
   <div class="main-1">
+
     <div class="inner">
+
       <div class="text">
         <h3 class="title">Инвестируйте в себя, вместе с пластическим хирургом Сергеем Блохиным</h3>
         <p>Признанный специалист в области пластической хирургии, доктор медицины, профессор и автор множества научных
           работ</p>
-        <a href="javascript:void(0)" class="btn btn-arrow ajax-mfp" data-href="<?= get_template_directory_uri() ?>/popup-callback.php">оставить заявку <img
+        <a href="javascript:void(0)" class="btn btn-arrow ajax-mfp" >оставить заявку <img
               src="<?= get_template_directory_uri() ?>/images/arrow-btn.svg" alt=""></a>
       </div>
       <div class="img">
@@ -17,6 +18,7 @@
     </div>
   </div>
   <div class="inner">
+
     <?php $bio = get_field('short_bio'); ?>
     <div class="main-2">
       <div class="img">
@@ -145,7 +147,7 @@
         <div class="tel"><span><?= the_field('tel', 'option'); ?></div>
       </div>
       <div class="callback">
-        <a href="" class="btn">Оставить заявку</a>
+        <a href="javascript:void(0)" class="btn ajax-mfp" data-href="<?= get_template_directory_uri() ?>/popup-callback.php">Оставить заявку</a>
         <div class="social-networks">
           <a href="<?= the_field('whatsapp', 'option'); ?>">
             <img src="<?= get_template_directory_uri() ?>/images/whatsapp.svg" alt="">
@@ -165,6 +167,4 @@
   </div>
   <iframe src="https://snazzymaps.com/embed/124986" width="100%" height="420px" style="border:none;"></iframe>
 </div>
-
-
 <?php get_footer(); ?>

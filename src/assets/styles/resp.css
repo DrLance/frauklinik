@@ -672,7 +672,7 @@
 		margin-top: 40px;
 	}
 	.biography-1 {
-		background: url(../images/blokhin-sergey-bg-3.jpg) no-repeat;
+		background: url(./images/blokhin-sergey-bg-3.jpg) no-repeat;
 		background-size: cover;
 	}
 	.biography-1 .inner {
@@ -777,7 +777,7 @@
 	}
 	header .dropdown-menu .right {
 		width: 100%;
-		background: url(../images/blokhin-sergey-bg-2.png) no-repeat;
+		background: url(./images/blokhin-sergey-bg-2.png) no-repeat;
 		background-size: cover;
 		padding: 48px 0px 48px 30px;
 	}
@@ -814,7 +814,7 @@
 		width: 33.33%;
 	}
 	.main-1 {
-		background: url(../images/blokhin-sergey-bg-3.jpg) no-repeat;
+		background: url(./images/blokhin-sergey-bg-3.jpg) no-repeat;
 		background-size: cover;
 	}
 	.main-1:before {
@@ -855,7 +855,7 @@
 	}
 	.landing-for-services-7 .callback:before {
 		content: '';
-		background: url(../images/blokhin-sergey-3.png) no-repeat;
+		background: url(./images/blokhin-sergey-3.png) no-repeat;
 		position: absolute;
 		right: 0;
 		bottom: 0;
@@ -1101,7 +1101,7 @@
 }
 
 @media only screen and (max-width : 700px) {
-	
+
 	.main-1 .img img.mobile {
 		height: 100%;
 	}
@@ -1445,7 +1445,7 @@
 	.team-2 {
 		padding: 115px 15px 60px;
 		margin-bottom: -40px;
-	} 
+	}
 	.main-1 .img {
 		left: 0px;
 		right: initial;
@@ -1629,7 +1629,7 @@
 	}
 	.biography-3 .work-results .swiper-slide .text p {
 		margin: 0 0 15px;
-	} 
+	}
 	.biography-3 .work-results .swiper-button-prev {
 		bottom: 130px;
 	}
@@ -1891,7 +1891,7 @@
 		width: 100%;
 	}
 	.services-2 .list .item .title, .services-2 .list .item ul li {
-		padding-left: 40px;	
+		padding-left: 40px;
 	}
 	.services-3 {
 		padding: 70px 30px;
@@ -2132,7 +2132,7 @@
 	}
 	/* Временно */
 	header .dropdown-menu .left .active-block > ul + ul {
-		margin-top: 30px; 
+		margin-top: 30px;
 	}
 	header .dropdown-menu .mobile-block > ul {
 		width: 100%;
@@ -2205,79 +2205,3 @@
 		width: 82.6%;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

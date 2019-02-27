@@ -41,14 +41,16 @@
         <div>
           <p class="tel"><?= the_field('tel', 'option'); ?></p>
           <p class="tel"><?= the_field('tel_2', 'option'); ?></p>
-          <a href="#" class="callback">оставить заявку</a>
+          <a href="#" class="callback ajax-mfp">оставить заявку</a>
           <?= the_field('adress', 'option'); ?>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="logo">
-        <span><?= bloginfo('description'); ?></span>
+        <a href="<?= site_url(); ?>">
+          <span><?= bloginfo('description'); ?></span>
+        </a>
       </div>
       <?= the_field('description_footer', 'option'); ?>
     </div>
@@ -58,5 +60,6 @@
 </div>
 
 <?php wp_footer(); ?>
+<?php get_template_part('partials/contact','callback'); ?>
 </body>
 </html>
