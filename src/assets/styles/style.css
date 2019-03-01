@@ -20,3 +20,26 @@ Tags: responsive, clean, minimal, modern, documentation
 @import "./main.css";
 @import './resp.css';
 @import "./magnific-popup.css";
+
+.wpcf7-form .wpcf7-response-output {
+  position: absolute;
+  width: 30vh;
+  vertical-align: center;
+  top: 80%;
+  left: 41.9%;
+  color: white;
+  font-family: 'Prata';
+}
+
+@media (max-width: 900px) {
+  .wpcf7-form .wpcf7-response-output {
+    position: absolute;
+    width: 30vh;
+    vertical-align: center;
+    top: 70%;
+    left: 21.9%;
+    color: white;
+    font-family: 'Prata';
+  }
+
+}
