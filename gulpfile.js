@@ -63,9 +63,11 @@ const pluginsListProd = [
 /* -------------------------------------------------------------------------------------------------
 Header & Footer JavaScript Boundles
 -------------------------------------------------------------------------------------------------- */
-const headerJS = ['./node_modules/jquery/dist/jquery.js','./src/assets/js/swiper.min.js','./src/assets/js/ScrollMagic.min.js',];
+const headerJS = ['./src/assets/js/swiper.min.js','./src/assets/js/ScrollMagic.min.js',];
 
-const footerJS = ['./src/assets/js/tabs.js',
+const footerJS = [
+  './node_modules/jquery/dist/jquery.js',
+  './src/assets/js/tabs.js',
   './src/assets/js/scrollspy.js',
   './src/assets/js/jquery.magnific-popup.min.js',
   './src/assets/js/jquery.fancybox.min.js',

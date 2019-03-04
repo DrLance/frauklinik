@@ -58,7 +58,7 @@
                 ?>
                 <?php foreach ($operationService as $item) : ?>
                   <li>
-                    <a <a href="#tab-1-<?= $index; ?>"><?= $item->title; ?></a>
+                    <a href="#tab-1-<?= $index; ?>"><?= $item->title; ?></a>
                   </li>
                   <?php $index++; endforeach;
                 $index = 1; ?>

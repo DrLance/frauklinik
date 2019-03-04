@@ -58,8 +58,8 @@
 </footer>
 
 </div>
-
-<?php wp_footer(); ?>
 <?php get_template_part('partials/contact','callback'); ?>
+<?php wp_footer(); ?>
+
 </body>
 </html>

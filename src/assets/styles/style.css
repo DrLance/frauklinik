@@ -21,7 +21,10 @@ Tags: responsive, clean, minimal, modern, documentation
 @import './resp.css';
 @import "./magnific-popup.css";
 
+
+
 .wpcf7-form .wpcf7-response-output {
+  display: none !important;
   position: absolute;
   width: 30vh;
   vertical-align: center;
