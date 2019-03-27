@@ -199,9 +199,7 @@
                       if (count($children) > 0) : ?>
 
                         <?php foreach ($children as $child) : ?>
-                          <?php if ($operation->ID) : ?>
-                          <?php endif; ?>
-                          <li class="mg-left">
+                          <li class="mg-left <?= end($children) === $child ? 'last' : '' ?>">
                             <a href="<?= get_permalink($child); ?>"><?= $child->post_title; ?></a>
                           </li>
                         <?php endforeach; ?>

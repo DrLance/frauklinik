@@ -17,8 +17,11 @@
     <div class="tabs">
       <ul>
         <?php foreach ($categories as $category) : ?>
+          <?php $titleTab = get_field('short_header', $category)
+            ? get_field('short_header', $category)
+            : $category->name; ?>
           <li>
-            <a href="#tab-<?= $index; ?>"><?= $category->name; ?></a>
+            <a href="#tab-<?= $index; ?>"><?= $titleTab; ?></a>
           </li>
           <?php $index++; endforeach;
         $index = 1; ?>

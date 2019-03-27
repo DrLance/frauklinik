@@ -1,33 +1,32 @@
 <?php get_header(); ?>
   <div class="inner">
     <div class="content-with-aside faq-page">
+      <?php
+      $categories = get_categories(array(
+        'taxonomy'     => 'taxonomy',
+        'type'         => 'operation_service',
+        'child_of'     => 0,
+        'parent'       => '',
+        'orderby'      => 'name',
+        'order'        => 'ASC',
+        'hide_empty'   => 1,
+        'hierarchical' => 1,
+      ));
+      $index      = 1;
+      ?>
+      <div class="tabs">
+        <ul>
+          <?php foreach ($categories as $category) : ?>
+            <li>
+              <a href="#tab-<?= $index; ?>"><?= $category->name; ?></a>
+            </li>
+            <?php $index++; endforeach;
+          $index = 1; ?>
+        </ul>
+      </div>
       <div class="content">
-        <?php
-        $categories = get_categories(array(
-          'taxonomy'     => 'taxonomy',
-          'type'         => 'operation_service',
-          'child_of'     => 0,
-          'parent'       => '',
-          'orderby'      => 'name',
-          'order'        => 'ASC',
-          'hide_empty'   => 1,
-          'hierarchical' => 1,
-        ));
-        $index      = 1;
-        ?>
-        <div class="tabs">
-          <ul>
-            <?php foreach ($categories as $category) : ?>
-              <li>
-                <a href="#tab-<?= $index; ?>"><?= $category->name; ?></a>
-              </li>
-              <?php $index++; endforeach;
-            $index = 1; ?>
-          </ul>
-        </div>
-        <?php foreach ($categories
 
-        as $category) : ?>
+        <?php foreach ($categories  as $category) : ?>
         <?php if (have_rows('block_faq', $category)) : ?>
           <div id="tab-<?= $index; ?>">
             <h4 class="title"><?= $categories[$index - 1]->name; ?>
@@ -47,11 +46,9 @@
         <?php else : ?>
           <div class="list-of-faq">
         <?php endif; ?>
-      </div>
-      <?php $index++;
-      endforeach;
-      $index = 1; ?>
 
+      <?php $index++;   endforeach;    $index = 1; ?>
+          </div>
       <aside class="aside-callback">
         <div class="callback">
           <img src="<?= get_template_directory_uri() ?>/images/arrow-callback.svg" alt="">

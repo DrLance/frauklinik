@@ -29,7 +29,7 @@
             <?php foreach ($students as $student) : ?>
               <div class="item">
 
-                <a href="" class="img">
+                <a href="<?= get_permalink($student); ?>" class="img">
                   <img src="<?= the_field('image_preview', $student->ID) ?>" alt="">
                   <img src="<?= get_template_directory_uri() ?>/images/ellipse-team.svg" alt="" class="bottom">
                 </a>
