@@ -158,23 +158,23 @@
                 <li class="title-2">
                   <?= $item->title; ?>
                 </li>
-                <?php $index++; endforeach; $index = 1; ?>
 
-              <?php foreach ($operationService as $service) : ?>
-
-                <?php
-                $operationCat = get_posts(array(
-                  'post_type'   => 'operation_service',
-                  'numberposts' => -1,
-                  'tax_query'   => array(
-                    array(
-                      'taxonomy' => 'taxonomy',
-                      'field'    => 'term_id',
-                      'terms'    => $service->object_id,
-                    ),
-                  ),
-                )); ?>
                 <ul>
+
+
+                  <?php
+                  $operationCat = get_posts(array(
+                    'post_type'   => 'operation_service',
+                    'numberposts' => -1,
+                    'tax_query'   => array(
+                      array(
+                        'taxonomy' => 'taxonomy',
+                        'field'    => 'term_id',
+                        'terms'    => $item->object_id,
+                      ),
+                    ),
+                  )); ?>
+
                   <?php foreach ($operationCat as $operation) : ?>
 
                     <?php
@@ -190,28 +190,27 @@
                         <a href="<?= get_permalink($operation); ?>"><?= $operation->post_title; ?></a>
                       </li>
                     <?php else : ?>
-                      <li class="title" style="padding-top: 15px;">
+                      <li class="title">
                         <a href="<?= get_permalink($operation); ?>"><?= $operation->post_title; ?></a>
                       </li>
                     <?php endif; ?>
                     <?php
 
                     if (count($children) > 0) : ?>
-                      <ul>
-                        <?php foreach ($children as $child) : ?>
-                          <?php if ($operation->ID) : ?>
-                          <?php endif; ?>
-                          <li class="mg-left">
-                            <a href="<?= get_permalink($child); ?>"><?= $child->post_title; ?></a>
-                          </li>
-                        <?php endforeach; ?>
-                      </ul>
+
+                      <?php foreach ($children as $child) : ?>
+                        <?php if ($operation->ID) : ?>
+                        <?php endif; ?>
+                        <li class="mg-left">
+                          <a href="<?= get_permalink($child); ?>"><?= $child->post_title; ?></a>
+                        </li>
+                      <?php endforeach; ?>
+
                     <?php endif; ?>
                   <?php endforeach; ?>
-                </ul>
 
-                <?php $index++; endforeach;
-              $index = 1; ?>
+                </ul>
+                <?php $index++; endforeach; $index = 1; ?>
             </ul>
           </ul>
         </div>
@@ -250,9 +249,15 @@
     <div class="navigation list">
       <div class="inner">
         <div>
+          <?php
+          if (function_exists('dimox_breadcrumbs')) {
+            dimox_breadcrumbs();
+          }
 
-          <?php if ( function_exists( 'dimox_breadcrumbs' ) ) dimox_breadcrumbs(); ?>
-          <h3 class="title"><?php the_title(); ?></h3>
+          if (is_page()): ?>
+            <h3 class="title"><?php the_title(); ?></h3>
+          <?php endif;
+          ?>
         </div>
         <div class="button">
           <a href="javascript:void(0)" class="ajax-mfp btn btn-arrow" data-href="<?= get_template_directory_uri() ?>/page-callback.php" >Оставить заявку
