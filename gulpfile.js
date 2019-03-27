@@ -71,7 +71,9 @@ const footerJS = [
   './src/assets/js/scrollspy.js',
   './src/assets/js/jquery.magnific-popup.min.js',
   './src/assets/js/jquery.fancybox.min.js',
-  './src/assets/js/script.js',];
+  './src/assets/js/script.js',
+  './src/assets/js/form.js'
+];
 
 /* -------------------------------------------------------------------------------------------------
 Installation Tasks
