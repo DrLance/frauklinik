@@ -81,6 +81,7 @@
                 <?php
                 $operationCat = get_posts(array(
                   'post_type' => 'operation_service',
+                  'numberposts' => -1,
                   'tax_query' => array(
                     array(
                       'taxonomy' => 'taxonomy',
@@ -158,10 +159,7 @@
                 <li class="title-2">
                   <?= $item->title; ?>
                 </li>
-
                 <ul>
-
-
                   <?php
                   $operationCat = get_posts(array(
                     'post_type'   => 'operation_service',

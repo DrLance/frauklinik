@@ -10,6 +10,17 @@
   <div>
     <h6 class="title">Другие услуги <img src="<?= get_template_directory_uri() ?>/images/arrow-tab.svg" alt=""></h6>
     <div class="faq">
+      <?php
+      $currentID = $post->ID;
+      $postID = wp_get_post_parent_id($post);
+      if($postID === 0) {
+        $postID = $post->ID;
+      }
+
+      $currentCat = wp_get_post_terms($postID, 'taxonomy');
+
+
+      ?>
           <?php
     $categories = get_categories(array(
       'taxonomy'     => 'taxonomy',
@@ -23,12 +34,13 @@
     ));
     $index      = 1; ?>
       <?php foreach ($categories as $category) : ?>
+
       <div class="item">
-        <div class="question">
+        <div class="question <?= $currentCat[0]->term_id == $category->term_id ? 'opened' : '' ?>">
           <?= $category->name; ?>
           <img src="<?= get_template_directory_uri() ?>/images/arrow-for-question.svg" alt="">
         </div>
-        <ul>
+        <ul style="<?= $currentCat[0]->term_id == $category->term_id ? 'display: block' : 'display: none' ?>">
           <?php
           $posts = get_posts(array(
             'post_type'   => 'operation_service',
@@ -51,15 +63,15 @@
             )); ?>
           <?php if(count($children) === 0) : ?>
           <li>
-            <a href="<?= get_permalink($post); ?>"><?= $post->post_title; ?></a>
+            <a href="<?= get_permalink($post); ?>" style="<?= $currentID === $post->ID ? 'color: #353A42; opacity: 1' : ''?>"><?= $post->post_title; ?></a>
           </li>
             <?php else : ?>
           <li>
-            <a href="<?= get_permalink($post); ?>"><?= $post->post_title; ?></a>
+            <a href="<?= get_permalink($post); ?>" style="<?= $currentID === $post->ID ? 'color: #353A42; opacity: 1' : ''?>"><?= $post->post_title; ?></a>
             <ul>
               <?php foreach ($children as $child) :   ?>
               <li>
-                <a href="<?= get_permalink($child); ?>"><?= $child->post_title; ?></a>
+                <a href="<?= get_permalink($child); ?>" style="<?= $currentID === $child->ID ? 'color: #353A42; opacity: 1' : ''?>"><?= $child->post_title; ?></a>
               </li>
               <?php endforeach; ?>
             </ul>
