@@ -822,3 +822,48 @@ function dimox_breadcrumbs() {
 
   }
 } // end of dimox_breadcrumbs()
+
+
+function slider_operation_service($atts)
+{
+  $result = '';
+  if (have_rows('slider_result_work')) {
+    $result .= '<div class="landing-for-services-3">
+        <div class="top">
+          <h6 class="title">Результаты работы</h6>
+          <a href="/works/">Все работы</a>
+        </div>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">';
+
+    // loop through the rows of data
+    while (have_rows('slider_result_work')) {
+      the_row();
+      $beforeImg = get_sub_field('before_img');
+      $afterImg = get_sub_field('after_img');
+
+      $result .=
+        '<div class="swiper-slide">
+                  <div class="before">
+                    <img src="' .
+        $beforeImg .
+        '" alt="">
+                  </div>
+                  <div class="after">
+                    <img src="' .
+        $afterImg .
+        '" alt="">
+                  </div>
+                </div>';
+    }
+
+    $result .= '</div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </div>';
+  }
+  return $result;
+}
+add_shortcode('slider_operation_service', 'slider_operation_service');
