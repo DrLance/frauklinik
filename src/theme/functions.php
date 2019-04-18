@@ -867,3 +867,39 @@ function slider_operation_service($atts)
   return $result;
 }
 add_shortcode('slider_operation_service', 'slider_operation_service');
+
+
+function getPostIDFroCat($category)
+{
+  $parents = get_posts(array(
+    'post_type' => 'operation_service',
+    'tax_query' => array(
+      array(
+        'taxonomy' => 'taxonomy',
+        'field'    => 'slug',
+        'terms'    => $category->slug,
+      ),
+    ),
+  ));
+
+  $parentsID = [];
+  $_childs   = [];
+  $childs    = [];
+
+  foreach ($parents as $parent) {
+    $_childs     = get_children(array(
+      'post_parent' => $parent->ID,
+      'post_type'   => 'operation_service',
+    ));
+    $childs      = array_merge($childs, $_childs);
+    $parentsID[] = $parent->ID;
+  }
+
+  foreach ($childs as $child) {
+    $parentsID[] = $child->ID;
+  }
+
+
+
+  return $parentsID;
+}

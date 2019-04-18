@@ -3,14 +3,9 @@
   <div class="content-with-aside services">
     <div class="content">
       <?php
-      if (have_posts()) :
-        while (have_posts()) :
-          the_post();
-          the_content();
-        endwhile;
-
-      endif;
-      ?>
+      if (have_posts()) :         the_post();?>
+          <?php the_content(); ?>
+        <?php  endif; ?>
 
       <?php if (get_field('important_info')) : ?>
         <div class="page-of-news-1">
@@ -19,7 +14,6 @@
           <?= the_field('important_info'); ?>
         </div>
       <?php endif; ?>
-      <?= the_excerpt(); ?>
     </div>
 
     <?php get_template_part('partials/sidebar', 'service'); ?>
